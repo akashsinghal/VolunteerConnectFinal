@@ -232,7 +232,7 @@ class RegSearchController: UIViewController {
         
          
     
-   func StartSearching(sender: AnyObject) {
+   @IBAction func StartSearching(sender: AnyObject) {
         var name1 = ""
         var address1 = ""
         var target1 = ""
@@ -305,5 +305,4 @@ class RegSearchController: UIViewController {
         
     }
     
-}
 }
