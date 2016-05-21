@@ -228,7 +228,7 @@ class RegSearchController: UIViewController {
             } else {
                 increment *= (Int)(5.0 / 11.0)
             }
-        
+        }
         
          
     
