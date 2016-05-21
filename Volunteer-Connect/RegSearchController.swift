@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseDatabase
 class RegSearchController: UIViewController {
     /*
     Instance Variables
@@ -27,7 +28,6 @@ class RegSearchController: UIViewController {
     var strArray = [[AnyObject]]()
     var listOfAgencies = [Agency]()
     static var sortedListOfAgencies = [Agency]()
-    
     /*
     Instances of UI Elements
     */
@@ -59,6 +59,7 @@ class RegSearchController: UIViewController {
     
     @IBOutlet weak var scrollViews: UIScrollView!
     override func viewDidLoad() {
+        //self.ref = FIRDatabase.database().reference()
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = scrollViews.frame.origin;
