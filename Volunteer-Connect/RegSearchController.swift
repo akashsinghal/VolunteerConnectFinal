@@ -228,10 +228,11 @@ class RegSearchController: UIViewController {
             } else {
                 increment *= (Int)(5.0 / 11.0)
             }
-        }
-    }
+        
+        
+         
     
-    @IBAction func StartSearching(sender: AnyObject) {
+   func StartSearching(sender: AnyObject) {
         var name1 = ""
         var address1 = ""
         var target1 = ""
@@ -298,6 +299,11 @@ class RegSearchController: UIViewController {
         
         shellSortAgencies(user)
         
+        for var y = 0; y < RegSearchController.sortedListOfAgencies.count; y += 1    {
+            print(RegSearchController.sortedListOfAgencies[y].getName());
+            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
+        
     }
     
+}
 }
