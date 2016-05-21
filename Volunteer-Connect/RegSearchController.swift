@@ -297,11 +297,11 @@ class RegSearchController: UIViewController {
             }
         }
         
-        shellSortAgencies(user)
-        
-        for var y = 0; y < RegSearchController.sortedListOfAgencies.count; y += 1    {
+    shellSortAgencies(user);
+    
+        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y += 1    {
             print(RegSearchController.sortedListOfAgencies[y].getName());
-            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
+            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));}
         
     }
     
