@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 import FirebaseDatabase
 class RegSearchController: UIViewController {
     /*
@@ -28,6 +29,7 @@ class RegSearchController: UIViewController {
     var strArray = [[AnyObject]]()
     var listOfAgencies = [Agency]()
     static var sortedListOfAgencies = [Agency]()
+    var ref = FIRDatabaseReference.init()
     /*
     Instances of UI Elements
     */
@@ -59,7 +61,17 @@ class RegSearchController: UIViewController {
     
     @IBOutlet weak var scrollViews: UIScrollView!
     override func viewDidLoad() {
-        //self.ref = FIRDatabase.database().reference()
+        self.ref = FIRDatabase.database().reference()
+        ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            for agency in snapshot.children {
+                let readinaddress = agency.value!["Address"] as! String
+                print(readinaddress)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = scrollViews.frame.origin;
@@ -298,10 +310,10 @@ class RegSearchController: UIViewController {
         
     shellSortAgencies(user);
     
-        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y++)    {
-            print(RegSearchController.sortedListOfAgencies[y].getName());
-            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
-        }
+//        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y++)    {
+//            print(RegSearchController.sortedListOfAgencies[y].getName());
+//            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
+//        }
         
     }
 }

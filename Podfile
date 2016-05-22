@@ -7,6 +7,7 @@ target 'Volunteer-Connect' do
 
   # Pods for Volunteer-Connect
 	pod 'Firebase'
+    pod 'Firebase/Database'
   target 'Volunteer-ConnectTests' do
     inherit! :search_paths
     # Pods for testing
