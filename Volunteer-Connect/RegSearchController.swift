@@ -61,16 +61,6 @@ class RegSearchController: UIViewController {
     
     @IBOutlet weak var scrollViews: UIScrollView!
     override func viewDidLoad() {
-        self.ref = FIRDatabase.database().reference()
-        ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            for agency in snapshot.children {
-                let readinaddress = agency.value!["Address"] as! String
-                print(readinaddress)
-            }
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
         
         super.viewDidLoad()
         var scrollFrame = CGRect();
@@ -198,25 +188,25 @@ class RegSearchController: UIViewController {
     Reads the file into a string array
     */
     
-    func readFile() {
-        var strFile = ""
-        let strpath = NSBundle.mainBundle().pathForResource("VolData", ofType: "csv")
-        do{
-            strFile = try String(contentsOfFile: strpath!, encoding: NSUTF8StringEncoding)
-        }
-        catch{
-            NSLog("There was a problem")
-        }
-        var data: [AnyObject] = [AnyObject]()
-        data = strFile.componentsSeparatedByString("\n")
-        for var y = 0; y < data.count; y += 1{
-            var translation = data[y].componentsSeparatedByString(",");
-            strArray.append(data[y].componentsSeparatedByString(","));
-            for var i = 0; i < 15; i += 1 {
-                strArray[y].append(translation [i]);
-            }
-        }
-    }
+//    func readFile() {
+//        var strFile = ""
+//        let strpath = NSBundle.mainBundle().pathForResource("VolData", ofType: "csv")
+//        do{
+//            strFile = try String(contentsOfFile: strpath!, encoding: NSUTF8StringEncoding)
+//        }
+//        catch{
+//            NSLog("There was a problem")
+//        }
+//        var data: [AnyObject] = [AnyObject]()
+//        data = strFile.componentsSeparatedByString("\n")
+//        for var y = 0; y < data.count; y += 1{
+//            var translation = data[y].componentsSeparatedByString(",");
+//            strArray.append(data[y].componentsSeparatedByString(","));
+//            for var i = 0; i < 15; i += 1 {
+//                strArray[y].append(translation [i]);
+//            }
+//        }
+//    }
     
     /*
     Sorts the Agencies by order of their percent match
@@ -256,45 +246,72 @@ class RegSearchController: UIViewController {
         
         let user = UserInput(areaOfInterest:InterestPickerValue, numberOfHours:selectedHour, distance:selectedRadius, isSelectedMonday: selectedMonday,isSelectedTuesday: selectedTuesday, isSelectedWednesday:selectedWednesday, isSelectedThursday:selectedThursday, isSelectedFriday:selectedFriday, isSelectedSaturday: selectedSaturday, isSelectedSunday:selectedSunday)
         
-        readFile()
-        
         let userLocation = ViewController.userLocation
-        var location: CLLocation
-        
-        for (var x = 1; x < strArray.count; x += 1) {
-            name1 = ((strArray [x]) [0]) as! String
-            address1 = (strArray[x])[1] as! String
-            target1 = (strArray[x])[2] as! String
-            phoneNumber1 = (strArray[x])[3] as! String
-            email1 = (strArray[x])[4] as! String
-            hours1 =  Double((strArray[x])[5] as! String)!
-            if(((strArray[x])[6] as! String) == "TRUE"){monday1 = true}
-            else{monday1 = false}
-            if(((strArray[x])[7] as! String) == "TRUE"){tuesday1 = true}
-            else{tuesday1 = false}
-            if(((strArray[x])[8] as! String) == "TRUE"){wednesday1 = true}
-            else{wednesday1 = false}
-            if(((strArray[x])[9] as! String) == "TRUE"){thursday1 = true}
-            else{thursday1 = false}
-            if(((strArray[x])[10] as! String) == "TRUE"){friday1 = true}
-            else{friday1 = false}
-            if(((strArray[x])[11] as! String) == "TRUE"){saturday1 = true}
-            else{saturday1 = false}
-            if(((strArray[x])[12] as! String) == "TRUE"){sunday1 = true}
-            else{sunday1 = false}
-            url1 = (strArray[x])[14] as! String
-            newaddress1 = (strArray[x])[13] as! String
-            
-            let coord = address1.componentsSeparatedByString(" ")
-            
-            location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
-            
-            let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
-            
-            listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
-            
+        self.ref = FIRDatabase.database().reference()
+        ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            for agency in snapshot.children {
+                name1 = agency.value!["Agency Name"] as! String
+                address1 = agency.value!["Coordinates"] as! String
+                target1 = agency.value!["Area of Interest"] as! String
+                phoneNumber1 = agency.value!["Phone Number"] as! String
+                email1 = agency.value!["Contact"] as! String
+                hours1 =  agency.value!["Number of Hours"] as! Double
+                monday1 = agency.value!["isMonday"] as! Bool
+                tuesday1 = agency.value!["isTuesday"] as! Bool
+                wednesday1 = agency.value!["isWednesday"] as! Bool
+                thursday1 = agency.value!["isThursday"] as! Bool
+                friday1 = agency.value!["isFriday"] as! Bool
+                saturday1 = agency.value!["isSaturday"] as! Bool
+                sunday1 = agency.value!["isSunday"] as! Bool
+                url1 = agency.value!["Website"] as! String
+                newaddress1 = agency.value!["Address"] as! String
+                
+                let coord = address1.componentsSeparatedByString(" ")
+                var location: CLLocation
+                location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
+                
+                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
+                
+                self.listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
+
+            }
+        }) { (error) in
+            print(error.localizedDescription)
         }
-        
+////        for (var x = 1; x < strArray.count; x += 1) {
+////            name1 = ((strArray [x]) [0]) as! String
+////            address1 = (strArray[x])[1] as! String
+////            target1 = (strArray[x])[2] as! String
+////            phoneNumber1 = (strArray[x])[3] as! String
+////            email1 = (strArray[x])[4] as! String
+////            hours1 =  Double((strArray[x])[5] as! String)!
+////            if(((strArray[x])[6] as! String) == "TRUE"){monday1 = true}
+////            else{monday1 = false}
+////            if(((strArray[x])[7] as! String) == "TRUE"){tuesday1 = true}
+////            else{tuesday1 = false}
+////            if(((strArray[x])[8] as! String) == "TRUE"){wednesday1 = true}
+////            else{wednesday1 = false}
+////            if(((strArray[x])[9] as! String) == "TRUE"){thursday1 = true}
+////            else{thursday1 = false}
+////            if(((strArray[x])[10] as! String) == "TRUE"){friday1 = true}
+////            else{friday1 = false}
+////            if(((strArray[x])[11] as! String) == "TRUE"){saturday1 = true}
+////            else{saturday1 = false}
+////            if(((strArray[x])[12] as! String) == "TRUE"){sunday1 = true}
+////            else{sunday1 = false}
+////            url1 = (strArray[x])[14] as! String
+////            newaddress1 = (strArray[x])[13] as! String
+//        
+//            let coord = address1.componentsSeparatedByString(" ")
+//            
+//            location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
+//            
+//            let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
+//            
+//            listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
+//            
+//        }
+    
         for var y = 0; y < listOfAgencies.count; y += 1    {
             if(user.getUserAreaOfInterest() == listOfAgencies[y].getTarget())
             {
@@ -303,10 +320,10 @@ class RegSearchController: UIViewController {
         }
         
     shellSortAgencies(user);
-    
-        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y++)    {
-            print(RegSearchController.sortedListOfAgencies[y].getName());
-            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
+        
+        for (var y = 0; y < listOfAgencies.count; y++)    {
+            print(listOfAgencies[y].getName());
+            print(listOfAgencies[y].percentMatch(user));
        }
         
     }
