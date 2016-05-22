@@ -240,14 +240,9 @@ class RegSearchController: UIViewController {
                 increment *= (Int)(5.0 / 11.0)
             }
         }
-<<<<<<< HEAD
-        
-         
-=======
     }
 
     @IBAction func StartSearching(sender: AnyObject) {
->>>>>>> origin/master
     
         var name1 = ""
         var address1 = ""
