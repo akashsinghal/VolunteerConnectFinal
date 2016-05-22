@@ -223,21 +223,15 @@ class RegSearchController: UIViewController {
     */
     func shellSortAgencies(userPreferences: UserInput)
     {
-        var increment = (RegSearchController.sortedListOfAgencies.count)/2
-        while (increment > 0) {
-            for var i = increment; i < RegSearchController.sortedListOfAgencies.count; i += 1 {
-                var j = i
-                let temp = RegSearchController.sortedListOfAgencies[i]
-                while (j >= increment && (RegSearchController.sortedListOfAgencies[(j - increment)].percentMatch(userPreferences) < temp.percentMatch(userPreferences))) {
-                    RegSearchController.sortedListOfAgencies[j] = RegSearchController.sortedListOfAgencies[j-increment]
-                    j = j - increment
+        for (var x = 0; x < RegSearchController.sortedListOfAgencies.count-1; x += 1) {
+            for(var w=0; w < RegSearchController.sortedListOfAgencies.count-1; w+=1)
+            {
+                if(RegSearchController.sortedListOfAgencies[w+1].percentMatch(userPreferences) > RegSearchController.sortedListOfAgencies[w].percentMatch(userPreferences))
+                {
+                    let temp = RegSearchController.sortedListOfAgencies[w];
+                    RegSearchController.sortedListOfAgencies[w]=RegSearchController.sortedListOfAgencies[w+1];
+                    RegSearchController.sortedListOfAgencies[w+1]=temp;
                 }
-                RegSearchController.sortedListOfAgencies[j] = temp
-            }
-            if (increment == 2) {
-                increment = 1
-            } else {
-                increment *= (Int)(5.0 / 11.0)
             }
         }
     }
@@ -310,10 +304,10 @@ class RegSearchController: UIViewController {
         
     shellSortAgencies(user);
     
-//        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y++)    {
-//            print(RegSearchController.sortedListOfAgencies[y].getName());
-//            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
-//        }
+        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y++)    {
+            print(RegSearchController.sortedListOfAgencies[y].getName());
+            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
+       }
         
     }
 }

@@ -123,9 +123,9 @@ class Agency{
 
     
     func percentMatch(userPicks: UserInput)->Double{
-        let DISTANCE_WEIGHTAGE = 0.0 //percent weightage
+        let DISTANCE_WEIGHTAGE = 10.0 //percent weightage
         let HOURS_WEIGHTAGE = 20.0
-        let DAYS_WEIGHTAGE = 80.0
+        let DAYS_WEIGHTAGE = 70.0
         
         var percentMatch = 0.0
         if(agencyTarget == userPicks.getUserAreaOfInterest())
