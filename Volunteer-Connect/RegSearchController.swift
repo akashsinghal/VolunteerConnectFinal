@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 import FirebaseDatabase
 class RegSearchController: UIViewController {
     /*
@@ -28,6 +29,7 @@ class RegSearchController: UIViewController {
     var strArray = [[AnyObject]]()
     var listOfAgencies = [Agency]()
     static var sortedListOfAgencies = [Agency]()
+    var ref = FIRDatabaseReference.init()
     /*
     Instances of UI Elements
     */
@@ -59,7 +61,17 @@ class RegSearchController: UIViewController {
     
     @IBOutlet weak var scrollViews: UIScrollView!
     override func viewDidLoad() {
-        //self.ref = FIRDatabase.database().reference()
+        self.ref = FIRDatabase.database().reference()
+        ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            for agency in snapshot.children {
+                let readinaddress = agency.value!["Address"] as! String
+                print(readinaddress)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = scrollViews.frame.origin;
@@ -209,7 +221,6 @@ class RegSearchController: UIViewController {
     /*
     Sorts the Agencies by order of their percent match
     */
-    
     func shellSortAgencies(userPreferences: UserInput)
     {
         var increment = (RegSearchController.sortedListOfAgencies.count)/2
@@ -229,10 +240,15 @@ class RegSearchController: UIViewController {
                 increment *= (Int)(5.0 / 11.0)
             }
         }
+<<<<<<< HEAD
         
          
+=======
+    }
+
+    @IBAction func StartSearching(sender: AnyObject) {
+>>>>>>> origin/master
     
-   @IBAction func StartSearching(sender: AnyObject) {
         var name1 = ""
         var address1 = ""
         var target1 = ""
@@ -299,10 +315,10 @@ class RegSearchController: UIViewController {
         
     shellSortAgencies(user);
     
-        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y += 1    {
-            print(RegSearchController.sortedListOfAgencies[y].getName());
-            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));}
+//        for (var y = 0; y < RegSearchController.sortedListOfAgencies.count; y++)    {
+//            print(RegSearchController.sortedListOfAgencies[y].getName());
+//            print(RegSearchController.sortedListOfAgencies[y].percentMatch(user));
+//        }
         
     }
-    
 }
