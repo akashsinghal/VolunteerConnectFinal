@@ -283,6 +283,9 @@ class RegSearchController: UIViewController {
                 RegSearchController.createNewAgency(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
                 
             }
+            dispatch_async(dispatch_get_main_queue) {
+                completion()
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
