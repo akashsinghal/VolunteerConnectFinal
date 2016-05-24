@@ -27,7 +27,7 @@ class RegSearchController: UIViewController {
     var selectedHour = 0.0
     var selectedRadius = 0.0
     var strArray = [[AnyObject]]()
-    var listOfAgencies = [Agency]()
+    static var listOfAgencies = [Agency]()
     static var sortedListOfAgencies = [Agency]()
     var ref = FIRDatabaseReference.init()
     /*
@@ -91,7 +91,7 @@ class RegSearchController: UIViewController {
         RadiusofSearchLabel.center = CGPoint(x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.40)
         InterestPicker.center = CGPoint (x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.15)
         AreaOfInterestLabel.center = CGPoint(x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.03)
-        listOfAgencies.removeAll()
+        RegSearchController.listOfAgencies.removeAll()
         RegSearchController.sortedListOfAgencies.removeAll()
         HourSlider.center = CGPoint(x: (screenSize.size.width/2) - (screenSize.size.width * 0.1) , y: screenSize.size.height * 0.35)
         RadiusSlider.center = CGPoint(x: (screenSize.size.width/2) - (screenSize.size.width * 0.1) , y: screenSize.size.height * 0.452)
@@ -226,6 +226,12 @@ class RegSearchController: UIViewController {
         }
     }
 
+    static func createNewAgency(newagency: Agency)
+    {
+        RegSearchController.listOfAgencies.append(newagency);
+    
+    }
+
     @IBAction func StartSearching(sender: AnyObject) {
     
         var name1 = ""
@@ -272,12 +278,13 @@ class RegSearchController: UIViewController {
                 
                 let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
                 
-                self.listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
-
+                RegSearchController.createNewAgency(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
+                
             }
         }) { (error) in
             print(error.localizedDescription)
         }
+        print(RegSearchController.listOfAgencies.count)
 ////        for (var x = 1; x < strArray.count; x += 1) {
 ////            name1 = ((strArray [x]) [0]) as! String
 ////            address1 = (strArray[x])[1] as! String
@@ -311,20 +318,18 @@ class RegSearchController: UIViewController {
 //            listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
 //            
 //        }
-    
-        for var y = 0; y < listOfAgencies.count; y += 1    {
-            if(user.getUserAreaOfInterest() == listOfAgencies[y].getTarget())
+        for var y = 0; y < RegSearchController.listOfAgencies.count; y += 1
             {
-            RegSearchController.sortedListOfAgencies.append(listOfAgencies[y])
-            }
+                print(user.getUserAreaOfInterest())
+                print(RegSearchController.listOfAgencies[y].getTarget())
+//            if(user.getUserAreaOfInterest() == RegSearchController.listOfAgencies[y].getTarget())
+//            {
+//            RegSearchController.sortedListOfAgencies.append(RegSearchController.listOfAgencies[y])
+//            }
         }
         
     shellSortAgencies(user);
-        
-        for (var y = 0; y < listOfAgencies.count; y++)    {
-            print(listOfAgencies[y].getName());
-            print(listOfAgencies[y].percentMatch(user));
-       }
+    //print(RegSearchController.sortedListOfAgencies[0].getName())
         
     }
 }
