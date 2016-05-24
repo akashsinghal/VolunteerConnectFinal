@@ -228,12 +228,14 @@ class RegSearchController: UIViewController {
 
     static func createNewAgency(newagency: Agency)
     {
-        RegSearchController.listOfAgencies.append(newagency);
-    
+        var newagency1 = newagency
+        
+        RegSearchController.listOfAgencies.append(newagency1);
     }
 
     @IBAction func StartSearching(sender: AnyObject) {
-    
+        self.ref = FIRDatabase.database().reference()
+        
         var name1 = ""
         var address1 = ""
         var target1 = ""
@@ -253,8 +255,8 @@ class RegSearchController: UIViewController {
         let user = UserInput(areaOfInterest:InterestPickerValue, numberOfHours:selectedHour, distance:selectedRadius, isSelectedMonday: selectedMonday,isSelectedTuesday: selectedTuesday, isSelectedWednesday:selectedWednesday, isSelectedThursday:selectedThursday, isSelectedFriday:selectedFriday, isSelectedSaturday: selectedSaturday, isSelectedSunday:selectedSunday)
         
         let userLocation = ViewController.userLocation
-        self.ref = FIRDatabase.database().reference()
-        ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+        
+        self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             for agency in snapshot.children {
                 name1 = agency.value!["Agency Name"] as! String
                 address1 = agency.value!["Coordinates"] as! String
@@ -320,12 +322,10 @@ class RegSearchController: UIViewController {
 //        }
         for var y = 0; y < RegSearchController.listOfAgencies.count; y += 1
             {
-                print(user.getUserAreaOfInterest())
-                print(RegSearchController.listOfAgencies[y].getTarget())
-//            if(user.getUserAreaOfInterest() == RegSearchController.listOfAgencies[y].getTarget())
-//            {
-//            RegSearchController.sortedListOfAgencies.append(RegSearchController.listOfAgencies[y])
-//            }
+            if(user.getUserAreaOfInterest() == RegSearchController.listOfAgencies[y].getTarget())
+            {
+            RegSearchController.sortedListOfAgencies.append(RegSearchController.listOfAgencies[y])
+            }
         }
         
     shellSortAgencies(user);
