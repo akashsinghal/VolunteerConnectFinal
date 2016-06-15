@@ -61,7 +61,54 @@ class RegSearchController: UIViewController {
     
     @IBOutlet weak var scrollViews: UIScrollView!
     override func viewDidLoad() {
-        
+        self.ref = FIRDatabase.database().reference()
+        let userLocation = ViewController.userLocation
+        var name1 = ""
+        var address1 = ""
+        var target1 = ""
+        var phoneNumber1 = ""
+        var email1 = ""
+        var hours1 = 0.0
+        var monday1 = true
+        var tuesday1 = true
+        var wednesday1 = true
+        var thursday1 = true
+        var friday1 = true
+        var saturday1 = true
+        var sunday1 = true
+        var url1 = ""
+        var newaddress1 = ""
+        self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            for agency in snapshot.children {
+                name1 = agency.value!["Agency Name"] as! String
+                address1 = agency.value!["Coordinates"] as! String
+                target1 = agency.value!["Area of Interest"] as! String
+                phoneNumber1 = agency.value!["Phone Number"] as! String
+                email1 = agency.value!["Contact"] as! String
+                hours1 =  agency.value!["Number of Hours"] as! Double
+                monday1 = agency.value!["isMonday"] as! Bool
+                tuesday1 = agency.value!["isTuesday"] as! Bool
+                wednesday1 = agency.value!["isWednesday"] as! Bool
+                thursday1 = agency.value!["isThursday"] as! Bool
+                friday1 = agency.value!["isFriday"] as! Bool
+                saturday1 = agency.value!["isSaturday"] as! Bool
+                sunday1 = agency.value!["isSunday"] as! Bool
+                url1 = agency.value!["Website"] as! String
+                newaddress1 = agency.value!["Address"] as! String
+                
+                let coord = address1.componentsSeparatedByString(" ")
+                var location: CLLocation
+                location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
+                
+                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
+                
+                RegSearchController.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
+                
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = scrollViews.frame.origin;
@@ -226,70 +273,10 @@ class RegSearchController: UIViewController {
         }
     }
 
-    static func createNewAgency(newagency: Agency)
-    {
-        var newagency1 = newagency
-        
-        RegSearchController.listOfAgencies.append(newagency1);
-    }
-
     @IBAction func StartSearching(sender: AnyObject) {
-        self.ref = FIRDatabase.database().reference()
-        
-        var name1 = ""
-        var address1 = ""
-        var target1 = ""
-        var phoneNumber1 = ""
-        var email1 = ""
-        var hours1 = 0.0
-        var monday1 = true
-        var tuesday1 = true
-        var wednesday1 = true
-        var thursday1 = true
-        var friday1 = true
-        var saturday1 = true
-        var sunday1 = true
-        var url1 = ""
-        var newaddress1 = ""
         
         let user = UserInput(areaOfInterest:InterestPickerValue, numberOfHours:selectedHour, distance:selectedRadius, isSelectedMonday: selectedMonday,isSelectedTuesday: selectedTuesday, isSelectedWednesday:selectedWednesday, isSelectedThursday:selectedThursday, isSelectedFriday:selectedFriday, isSelectedSaturday: selectedSaturday, isSelectedSunday:selectedSunday)
         
-        let userLocation = ViewController.userLocation
-        
-        self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            for agency in snapshot.children {
-                name1 = agency.value!["Agency Name"] as! String
-                address1 = agency.value!["Coordinates"] as! String
-                target1 = agency.value!["Area of Interest"] as! String
-                phoneNumber1 = agency.value!["Phone Number"] as! String
-                email1 = agency.value!["Contact"] as! String
-                hours1 =  agency.value!["Number of Hours"] as! Double
-                monday1 = agency.value!["isMonday"] as! Bool
-                tuesday1 = agency.value!["isTuesday"] as! Bool
-                wednesday1 = agency.value!["isWednesday"] as! Bool
-                thursday1 = agency.value!["isThursday"] as! Bool
-                friday1 = agency.value!["isFriday"] as! Bool
-                saturday1 = agency.value!["isSaturday"] as! Bool
-                sunday1 = agency.value!["isSunday"] as! Bool
-                url1 = agency.value!["Website"] as! String
-                newaddress1 = agency.value!["Address"] as! String
-                
-                let coord = address1.componentsSeparatedByString(" ")
-                var location: CLLocation
-                location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
-                
-                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
-                
-                RegSearchController.createNewAgency(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
-                
-            }
-//            dispatch_async(dispatch_get_main_queue) {
-//                completion()
-//            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        print(RegSearchController.listOfAgencies.count)
 ////        for (var x = 1; x < strArray.count; x += 1) {
 ////            name1 = ((strArray [x]) [0]) as! String
 ////            address1 = (strArray[x])[1] as! String
