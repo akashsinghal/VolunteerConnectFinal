@@ -102,31 +102,31 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         RegSearchResultsController.itemNum = sender.tag
         var textBoxString = "Distance: \(Int(RegSearchResultsController.printListOfAgencies[sender.tag].agencyDistance)) mi.\nNumber of Hours: \(RegSearchResultsController.printListOfAgencies[sender.tag].getHours())\nContact: \(RegSearchResultsController.printListOfAgencies[sender.tag].getEmail())\nDays Open: "
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenSunday())   {
-            textBoxString =  textBoxString + "Sunday "
+            textBoxString =  textBoxString + "Sun "
         }
         
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenMonday())   {
-            textBoxString = textBoxString + "Monday "
+            textBoxString = textBoxString + "Mon "
         }
         
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenTuesday())  {
-            textBoxString = textBoxString + "Tuesday "
+            textBoxString = textBoxString + "Tue "
         }
         
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenWednesday())    {
-            textBoxString = textBoxString + "Wednesday "
+            textBoxString = textBoxString + "Wed "
         }
         
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenThursday()) {
-            textBoxString = textBoxString + "Thursday "
+            textBoxString = textBoxString + "Thu "
         }
         
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenFriday())   {
-            textBoxString = textBoxString + "Friday "
+            textBoxString = textBoxString + "Fri "
         }
         
         if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenSaturday()) {
-            textBoxString = textBoxString + "Saturday "
+            textBoxString = textBoxString + "Sat "
         }
         let alertInfo = UIAlertView()
         alertInfo.delegate = self
