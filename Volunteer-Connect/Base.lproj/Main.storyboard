@@ -663,15 +663,15 @@
             </objects>
             <point key="canvasLocation" x="1157.5" y="319.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="ceN-Bv-pzs">
             <objects>
-                <viewController id="b0g-cq-LpL" sceneMemberID="viewController">
+                <viewController id="b0g-cq-LpL" customClass="ResultViewController" customModule="Volunteer_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="spc-Rn-uim">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2rk-uP-O34">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logohome" id="2rk-uP-O34">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -707,16 +707,25 @@
                                 <rect key="frame" x="270" y="569" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Directions"/>
+                                <connections>
+                                    <action selector="getDirections:" destination="b0g-cq-LpL" eventType="touchUpInside" id="dBG-tg-QNI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n6M-lJ-8nk">
                                 <rect key="frame" x="36" y="569" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Email"/>
+                                <connections>
+                                    <action selector="sendEmail:" destination="b0g-cq-LpL" eventType="touchUpInside" id="n8f-UQ-xWn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IH9-iU-5JG">
                                 <rect key="frame" x="122" y="569" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Phone Number"/>
+                                <connections>
+                                    <action selector="callPhone:" destination="b0g-cq-LpL" eventType="touchUpInside" id="zxK-gn-vbX"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" id="nET-m4-Rik">
                                 <rect key="frame" x="20" y="326" width="335" height="195"/>
@@ -755,10 +764,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.05337949843960077" green="1" blue="0.00033646567800915683" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="AgencyName" destination="3W0-ZS-7nI" id="bcn-HW-Nq0"/>
+                        <outlet property="contact" destination="wZE-XU-3XK" id="cGZ-DE-8Ri"/>
+                        <outlet property="days" destination="4gV-r7-HbY" id="9I2-ED-t9n"/>
+                        <outlet property="descriptiontext" destination="nET-m4-Rik" id="CsE-TX-OgW"/>
+                        <outlet property="hours" destination="9SS-EG-zBg" id="WsI-Xv-CtC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6t-4s-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

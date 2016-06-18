@@ -22,6 +22,7 @@
 		38E9541D1C28DE600073D169 /* RegSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9541C1C28DE600073D169 /* RegSearchResultsController.swift */; };
 		38E9541F1C2B39140073D169 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9541E1C2B39140073D169 /* Agency.swift */; };
 		38E954231C2DE2BC0073D169 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E954221C2DE2BC0073D169 /* TableViewCell.swift */; };
+		38F3124D1D1510AC002C98BF /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F3124C1D1510AC002C98BF /* ResultViewController.swift */; };
 		38FA8CE01C30AF2000CBDBEE /* AdvSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA8CDF1C30AF2000CBDBEE /* AdvSearchViewController.swift */; };
 		D4B0C14CE449FEDDE06BFF8A /* Pods_Volunteer_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42A8083559EDA63177C2866 /* Pods_Volunteer_Connect.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		38E9541C1C28DE600073D169 /* RegSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegSearchResultsController.swift; sourceTree = "<group>"; };
 		38E9541E1C2B39140073D169 /* Agency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
 		38E954221C2DE2BC0073D169 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = ../TableViewCell.swift; sourceTree = "<group>"; };
+		38F3124C1D1510AC002C98BF /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		38FA8CDF1C30AF2000CBDBEE /* AdvSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvSearchViewController.swift; sourceTree = "<group>"; };
 		4CEFA43CB1CB81DF8A6C47AF /* Pods-Volunteer-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect.release.xcconfig"; sourceTree = "<group>"; };
 		93D00D11BB5B30A8BFB09CED /* Pods_Volunteer_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Volunteer_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				38FA8CDF1C30AF2000CBDBEE /* AdvSearchViewController.swift */,
 				38E9541A1C28DE2D0073D169 /* RegSearchController.swift */,
 				38E9541C1C28DE600073D169 /* RegSearchResultsController.swift */,
+				38F3124C1D1510AC002C98BF /* ResultViewController.swift */,
 				3821035C1C28C20200B26E65 /* UserInput.swift */,
 				38E9541E1C2B39140073D169 /* Agency.swift */,
 				38C83FF21C2F8F0E0025AF96 /* AdvUserInput.swift */,
@@ -379,6 +382,7 @@
 				38C83FF31C2F8F0E0025AF96 /* AdvUserInput.swift in Sources */,
 				388E869A1C27338B00734484 /* ViewController.swift in Sources */,
 				3821035D1C28C20200B26E65 /* UserInput.swift in Sources */,
+				38F3124D1D1510AC002C98BF /* ResultViewController.swift in Sources */,
 				388E86981C27338B00734484 /* AppDelegate.swift in Sources */,
 				38E9541F1C2B39140073D169 /* Agency.swift in Sources */,
 				38E954231C2DE2BC0073D169 /* TableViewCell.swift in Sources */,
