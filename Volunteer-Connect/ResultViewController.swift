@@ -14,13 +14,17 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var days: UILabel!
     @IBOutlet weak var contact: UILabel!
     @IBOutlet weak var descriptiontext: UITextView!
-
+    
+    @IBOutlet weak var distance: UILabel!
+    var agencyname = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillAppear(animated: Bool) {
+        AgencyName.text = agencyname;
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

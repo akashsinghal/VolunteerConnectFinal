@@ -95,6 +95,20 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let row = indexPath.row
+        //print(swiftBlogs[row])
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController as? ResultViewController
+        let blogIndex = tableView.indexPathForSelectedRow?.row
+        
+        destination!.agencyname = "hello"
+        
+        
+    }
     
     
     @IBAction func infoAction(sender: UIButton)
