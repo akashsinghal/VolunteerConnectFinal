@@ -17,6 +17,11 @@ class ResultViewController: UIViewController  {
     
     @IBOutlet weak var distance: UILabel!
     var agencyname = String()
+    var hoursText = String()
+    var daysText = String()
+    var contactText = String()
+    var descriptionText = String()
+    var distanceText = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,14 +29,19 @@ class ResultViewController: UIViewController  {
     }
     override func viewWillAppear(animated: Bool) {
         AgencyName.text = agencyname;
+        hours.text = hoursText;
+        days.text = daysText;
+        contact.text = contactText;
+        descriptiontext.text = descriptionText;
+        distance.text = distanceText;
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
-    @IBAction func sendEmail(sender: UIButton) {
-    }
+    
     @IBAction func callPhone(sender: UIButton) {
     }
     @IBAction func getDirections(sender: UIButton) {

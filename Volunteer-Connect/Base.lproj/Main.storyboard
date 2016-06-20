@@ -639,7 +639,7 @@
                                             <outlet property="phoneButton" destination="NGl-wX-U1s" id="h7x-yE-yWW"/>
                                             <outlet property="titleLabel" destination="aUn-q8-Hb1" id="V6I-V3-BIe"/>
                                             <outlet property="urlbutton" destination="ndf-vd-45T" id="Ug2-js-S3T"/>
-                                            <segue destination="b0g-cq-LpL" kind="push" id="nE1-l6-iBJ"/>
+                                            <segue destination="b0g-cq-LpL" kind="modal" id="fXt-dU-ZTa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -716,9 +716,6 @@
                                 <rect key="frame" x="36" y="569" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Email"/>
-                                <connections>
-                                    <action selector="sendEmail:" destination="b0g-cq-LpL" eventType="touchUpInside" id="n8f-UQ-xWn"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IH9-iU-5JG">
                                 <rect key="frame" x="122" y="569" width="103" height="30"/>

@@ -103,11 +103,12 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = segue.destinationViewController as? ResultViewController
-        let blogIndex = tableView.indexPathForSelectedRow?.row
+        let inndex = tableView.indexPathForSelectedRow?.row
         
-        destination!.agencyname = "hello"
-        
-        
+        destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
+        destination!.hoursText = RegSearchResultsController.printListOfAgencies[inndex!].getHours()
+        destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
+
     }
     
     
