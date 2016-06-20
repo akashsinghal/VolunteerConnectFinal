@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController  {
     @IBOutlet weak var AgencyName: UILabel!
     @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var days: UILabel!

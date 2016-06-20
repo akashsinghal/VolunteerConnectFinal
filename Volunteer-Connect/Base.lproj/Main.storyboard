@@ -805,7 +805,7 @@
         <image name="logohome" width="483" height="472"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qPz-uV-tLp"/>
         <segue reference="u32-0v-BhH"/>
+        <segue reference="qPz-uV-tLp"/>
     </inferredMetricsTieBreakers>
 </document>
