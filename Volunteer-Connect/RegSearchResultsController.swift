@@ -107,7 +107,8 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         
         destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
         destination!.hoursText = RegSearchResultsController.printListOfAgencies[inndex!].getHours()
-        destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
+        destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
+        destination!.distanceText = Int(RegSearchResultsController.printListOfAgencies[inndex!].agencyDistance);
 
     }
     
