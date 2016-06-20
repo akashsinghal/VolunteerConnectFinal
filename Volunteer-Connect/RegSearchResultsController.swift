@@ -7,6 +7,7 @@
 
 import UIKit
 import MessageUI
+import Foundation
 
 class RegSearchResultsController: UIViewController, MFMailComposeViewControllerDelegate{
     
@@ -82,136 +83,162 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
         cell.backgroundColor = cell.contentView.backgroundColor;
         cell.titleLabel.text = self.objects.objectAtIndex(indexPath.row) as? String
-        cell.infoButton.tag = indexPath.row;
-        cell.urlbutton.tag = indexPath.row;
-        cell.phoneButton.tag = indexPath.row;
-        cell.infoButton.addTarget(self, action: #selector(RegSearchResultsController.infoAction(_:)) , forControlEvents: .TouchUpInside)
-        cell.urlbutton.addTarget(self, action: #selector(RegSearchResultsController.sendURL(_:)) , forControlEvents: .TouchUpInside)
-        cell.phoneButton.addTarget(self, action: #selector(RegSearchResultsController.callPhone(_:)) , forControlEvents: .TouchUpInside)
+//        cell.infoButton.tag = indexPath.row;
+//        cell.urlbutton.tag = indexPath.row;
+//        cell.phoneButton.tag = indexPath.row;
+//        cell.infoButton.addTarget(self, action: #selector(RegSearchResultsController.infoAction(_:)) , forControlEvents: .TouchUpInside)
+//        cell.urlbutton.addTarget(self, action: #selector(RegSearchResultsController.sendURL(_:)) , forControlEvents: .TouchUpInside)
+//        cell.phoneButton.addTarget(self, action: #selector(RegSearchResultsController.callPhone(_:)) , forControlEvents: .TouchUpInside)
         cell.titleLabel.frame = CGRectMake(7, 14, screenSize.size.width - 98, 20);
-        cell.urlbutton.center = CGPoint( x: (screenSize.size.width) - 20 , y: 23);
-        cell.phoneButton.center = CGPoint(x: (screenSize.size.width) - 47 , y: 23);
-        cell.infoButton.center = CGPoint(x: (screenSize.size.width) - 76 , y: 23);
+//        cell.urlbutton.center = CGPoint( x: (screenSize.size.width) - 20 , y: 23);
+//        cell.phoneButton.center = CGPoint(x: (screenSize.size.width) - 47 , y: 23);
+//        cell.infoButton.center = CGPoint(x: (screenSize.size.width) - 76 , y: 23);
         
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let row = indexPath.row
-        //print(swiftBlogs[row])
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = segue.destinationViewController as? ResultViewController
         let inndex = tableView.indexPathForSelectedRow?.row
-        
+        var textBoxString = ""
         destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
-        destination!.hoursText = RegSearchResultsController.printListOfAgencies[inndex!].getHours()
         destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
-        destination!.distanceText = Int(RegSearchResultsController.printListOfAgencies[inndex!].agencyDistance);
-
-    }
-    
-    
-    @IBAction func infoAction(sender: UIButton)
-    {
-        RegSearchResultsController.itemNum = sender.tag
-        var textBoxString = "Distance: \(Int(RegSearchResultsController.printListOfAgencies[sender.tag].agencyDistance)) mi.\nNumber of Hours: \(RegSearchResultsController.printListOfAgencies[sender.tag].getHours())\nContact: \(RegSearchResultsController.printListOfAgencies[sender.tag].getEmail())\nDays Open: "
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenSunday())   {
+        destination!.distanceText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].agencyDistance))
+        destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenSunday())   {
             textBoxString =  textBoxString + "Sun "
         }
         
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenMonday())   {
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenMonday())   {
             textBoxString = textBoxString + "Mon "
         }
         
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenTuesday())  {
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenTuesday())  {
             textBoxString = textBoxString + "Tue "
         }
         
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenWednesday())    {
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenWednesday())    {
             textBoxString = textBoxString + "Wed "
         }
         
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenThursday()) {
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenThursday()) {
             textBoxString = textBoxString + "Thu "
         }
         
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenFriday())   {
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenFriday())   {
             textBoxString = textBoxString + "Fri "
         }
         
-        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenSaturday()) {
+        if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenSaturday()) {
             textBoxString = textBoxString + "Sat "
         }
-        let alertInfo = UIAlertView()
-        alertInfo.delegate = self
-        alertInfo.message = textBoxString
-        alertInfo.addButtonWithTitle("Show In Maps")
-        alertInfo.addButtonWithTitle("Dismiss")
-        alertInfo.title = RegSearchResultsController.printListOfAgencies[sender.tag].getName()
-        alertInfo.show()
+        destination!.daysText = textBoxString;
+        destination!.descriptionText = "Hello, my name is";
+        
     }
     
-    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
-        switch buttonIndex{
-        case 0:
-            var tempUrl = "http://maps.apple.com/?daddr=\(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress())&dirflg=d&t=h"
-            tempUrl = tempUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            
-            if(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress() != "N/A")
-            {
-                if let url = NSURL(string: tempUrl){
-                UIApplication.sharedApplication().openURL(url)
-                }
-            }
-            else
-            {
-                
-                let control = UIAlertController(title: "No Address Found", message: "Sorry, but we don't have an address for this agency :(", preferredStyle: UIAlertControllerStyle.Alert)
-                control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler:nil))
-                self.presentViewController(control, animated: true, completion: nil)
-            }
-        default:
-            print("");
-        }
-        
-    }
-    @IBAction func sendURL(sender: UIButton) {
-        
-        var tempurl = RegSearchResultsController.printListOfAgencies[sender.tag].getURL()
-        tempurl = tempurl.stringByReplacingOccurrencesOfString("\r", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        if(tempurl != "N/A")
-        {
-            if let url = NSURL(string: tempurl) {
-                UIApplication.sharedApplication().openURL(url)
-            }
-        }
-        else
-        {
-            
-            let control = UIAlertController(title: "No Website Found", message: "Sorry, but this agency doesn't have a website :(", preferredStyle: UIAlertControllerStyle.Alert)
-            control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler:nil))
-            self.presentViewController(control, animated: true, completion: nil)
-        }
-    }
-
-
-    @IBAction func callPhone(sender: UIButton) {
-        if(RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber() != "N/A")
-        {
-        let callPhoneNumber:NSURL = NSURL(string: "telprompt://" + RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber())!
-        UIApplication.sharedApplication().openURL(callPhoneNumber)
-        }
-        else
-        {
-            let control = UIAlertController(title: "No Phone Number Found", message:
-                "Sorry, but this agency doesn't have a phone number :(", preferredStyle: UIAlertControllerStyle.Alert)
-            control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-            
-            
-            self.presentViewController(control, animated: true, completion: nil)
-
-        }
-    }
+    
+//    @IBAction func infoAction(sender: UIButton)
+//    {
+//        RegSearchResultsController.itemNum = sender.tag
+//        var textBoxString = "Distance: \(Int(RegSearchResultsController.printListOfAgencies[sender.tag].agencyDistance)) mi.\nNumber of Hours: \(RegSearchResultsController.printListOfAgencies[sender.tag].getHours())\nContact: \(RegSearchResultsController.printListOfAgencies[sender.tag].getEmail())\nDays Open: "
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenSunday())   {
+//            textBoxString =  textBoxString + "Sun "
+//        }
+//        
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenMonday())   {
+//            textBoxString = textBoxString + "Mon "
+//        }
+//        
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenTuesday())  {
+//            textBoxString = textBoxString + "Tue "
+//        }
+//        
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenWednesday())    {
+//            textBoxString = textBoxString + "Wed "
+//        }
+//        
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenThursday()) {
+//            textBoxString = textBoxString + "Thu "
+//        }
+//        
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenFriday())   {
+//            textBoxString = textBoxString + "Fri "
+//        }
+//        
+//        if (RegSearchResultsController.printListOfAgencies[sender.tag].getIsOpenSaturday()) {
+//            textBoxString = textBoxString + "Sat "
+//        }
+//        let alertInfo = UIAlertView()
+//        alertInfo.delegate = self
+//        alertInfo.message = textBoxString
+//        alertInfo.addButtonWithTitle("Show In Maps")
+//        alertInfo.addButtonWithTitle("Dismiss")
+//        alertInfo.title = RegSearchResultsController.printListOfAgencies[sender.tag].getName()
+//        alertInfo.show()
+//    }
+//    
+//    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+//        switch buttonIndex{
+//        case 0:
+//            var tempUrl = "http://maps.apple.com/?daddr=\(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress())&dirflg=d&t=h"
+//            tempUrl = tempUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
+//            
+//            if(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress() != "N/A")
+//            {
+//                if let url = NSURL(string: tempUrl){
+//                UIApplication.sharedApplication().openURL(url)
+//                }
+//            }
+//            else
+//            {
+//                
+//                let control = UIAlertController(title: "No Address Found", message: "Sorry, but we don't have an address for this agency :(", preferredStyle: UIAlertControllerStyle.Alert)
+//                control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler:nil))
+//                self.presentViewController(control, animated: true, completion: nil)
+//            }
+//        default:
+//            print("");
+//        }
+//        
+//    }
+//    @IBAction func sendURL(sender: UIButton) {
+//        
+//        var tempurl = RegSearchResultsController.printListOfAgencies[sender.tag].getURL()
+//        tempurl = tempurl.stringByReplacingOccurrencesOfString("\r", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+//        if(tempurl != "N/A")
+//        {
+//            if let url = NSURL(string: tempurl) {
+//                UIApplication.sharedApplication().openURL(url)
+//            }
+//        }
+//        else
+//        {
+//            
+//            let control = UIAlertController(title: "No Website Found", message: "Sorry, but this agency doesn't have a website :(", preferredStyle: UIAlertControllerStyle.Alert)
+//            control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler:nil))
+//            self.presentViewController(control, animated: true, completion: nil)
+//        }
+//    }
+//
+//
+//    @IBAction func callPhone(sender: UIButton) {
+//        if(RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber() != "N/A")
+//        {
+//        let callPhoneNumber:NSURL = NSURL(string: "telprompt://" + RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber())!
+//        UIApplication.sharedApplication().openURL(callPhoneNumber)
+//        }
+//        else
+//        {
+//            let control = UIAlertController(title: "No Phone Number Found", message:
+//                "Sorry, but this agency doesn't have a phone number :(", preferredStyle: UIAlertControllerStyle.Alert)
+//            control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+//            
+//            
+//            self.presentViewController(control, animated: true, completion: nil)
+//
+//        }
+//    }
 }
