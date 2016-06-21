@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class ResultViewController: UIViewController  {
+class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var days: UILabel!
     @IBOutlet weak var contact: UILabel!
@@ -17,16 +18,19 @@ class ResultViewController: UIViewController  {
     @IBOutlet weak var backgroundimg: UIImageView!
     @IBOutlet weak var resultviewnavbar: UINavigationBar!
     @IBOutlet weak var distance: UILabel!
-    var agencyname = String()//
-    var hoursText = String()//
-    var daysText = String()//
-    var contactText = String() //
+    var agencyname = String()
+    var hoursText = String()
+    var daysText = String()
+    var contactText = String()
     var descriptionText = String()
-    var distanceText = "" //
+    var emailText = String()
+    var distanceText = ""
     var screenSize:CGRect = UIScreen.mainScreen().bounds
+    let mailComposeViewController = MFMailComposeViewController();
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mailComposeViewController.mailComposeDelegate = self
         if(screenSize.size.width <= 350)
         {
             resultviewnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 50)
@@ -51,11 +55,37 @@ class ResultViewController: UIViewController  {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
     }
     
     
+    @IBAction func sendMail(sender: UIButton) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mc = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        
+        mc.setToRecipients([emailText])
+        mc.setSubject("Interested in Volunteering")
+        
+        return mc;
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Error", message: "Whoops! Something went wrong. Check your e-mail settings and see if mail is enabled", delegate: self, cancelButtonTitle: "Ok")
+        sendMailErrorAlert.show()
+    }
+    
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     @IBAction func callPhone(sender: UIButton) {
         if(RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber() != "N/A")
         {
@@ -93,15 +123,5 @@ class ResultViewController: UIViewController  {
         }
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

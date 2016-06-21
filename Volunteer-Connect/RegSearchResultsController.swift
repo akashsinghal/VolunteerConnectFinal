@@ -9,7 +9,7 @@ import UIKit
 import MessageUI
 import Foundation
 
-class RegSearchResultsController: UIViewController, MFMailComposeViewControllerDelegate{
+class RegSearchResultsController: UIViewController{
     
     @IBOutlet weak var backgroundimg: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +18,6 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
     
     var objects: NSMutableArray! = NSMutableArray()
     static var printListOfAgencies = [Agency]();
-    let mailComposeViewController1 = MFMailComposeViewController();
     var screenSize:CGRect = UIScreen.mainScreen().bounds
     static var itemNum = 0
     
@@ -41,7 +40,6 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         }
         
         self.tableView.reloadData()
-        mailComposeViewController1.mailComposeDelegate = self
         
         if(screenSize.size.width <= 350)
         {
@@ -59,13 +57,10 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         let blur2 = UIVisualEffectView(effect: blur);
         blur2.frame = backgroundimg.bounds;
         backgroundimg.insertSubview(blur2, atIndex: 0)
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
@@ -107,6 +102,7 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
         destination!.distanceText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].agencyDistance))
         destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
+        destination!.hoursText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].getHours()))
         if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenSunday())   {
             textBoxString =  textBoxString + "Sun "
         }
@@ -136,6 +132,7 @@ class RegSearchResultsController: UIViewController, MFMailComposeViewControllerD
         }
         destination!.daysText = textBoxString;
         destination!.descriptionText = "Hello, my name is";
+        destination!.emailText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail();
         
     }
     
