@@ -6,16 +6,79 @@
 //
 
 import UIKit
+import CoreLocation
 import Firebase
+import FirebaseDatabase
+    
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
-
+    var ref = FIRDatabaseReference.init()
+    
+    let locationManager = CLLocationManager()
+    static var userLocation = CLLocation()
+    static var listOfAgencies = [Agency]()
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
+        AppDelegate.userLocation = self.locationManager.location!
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
         FIRApp.configure()
+        self.ref = FIRDatabase.database().reference()
+        let userLocation = AppDelegate.userLocation
+        var name1 = ""
+        var address1 = ""
+        var target1 = ""
+        var phoneNumber1 = ""
+        var email1 = ""
+        var hours1 = 0.0
+        var monday1 = true
+        var tuesday1 = true
+        var wednesday1 = true
+        var thursday1 = true
+        var friday1 = true
+        var saturday1 = true
+        var sunday1 = true
+        var url1 = ""
+        var newaddress1 = ""
+        self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
+            for agency in snapshot.children {
+                name1 = agency.value!["Agency Name"] as! String
+                address1 = agency.value!["Coordinates"] as! String
+                target1 = agency.value!["Area of Interest"] as! String
+                phoneNumber1 = agency.value!["Phone Number"] as! String
+                email1 = agency.value!["Contact"] as! String
+                hours1 =  agency.value!["Number of Hours"] as! Double
+                monday1 = agency.value!["isMonday"] as! Bool
+                tuesday1 = agency.value!["isTuesday"] as! Bool
+                wednesday1 = agency.value!["isWednesday"] as! Bool
+                thursday1 = agency.value!["isThursday"] as! Bool
+                friday1 = agency.value!["isFriday"] as! Bool
+                saturday1 = agency.value!["isSaturday"] as! Bool
+                sunday1 = agency.value!["isSunday"] as! Bool
+                url1 = agency.value!["Website"] as! String
+                newaddress1 = agency.value!["Address"] as! String
+                
+                let coord = address1.componentsSeparatedByString(" ")
+                var location: CLLocation
+                location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
+                
+                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
+                
+                AppDelegate.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
+                print(name1)
+                
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         return true
     }
 

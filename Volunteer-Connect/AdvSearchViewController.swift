@@ -6,9 +6,7 @@
 //
 
 import UIKit
-import CoreLocation
-import Firebase
-import FirebaseDatabase
+
 class AdvSearchViewController: UIViewController {
     
     @IBOutlet weak var backgroundimg: UIImageView!
@@ -51,61 +49,10 @@ class AdvSearchViewController: UIViewController {
     var advSelectedHour = 0.0
     var advSelectedDays = 0.0
     var advStrArray = [[AnyObject]]()
-    var advListOfAgencies = [Agency]()
     static var advSortedListOfAgencies = [Agency]()
-    var ref = FIRDatabaseReference.init()
     
     override func viewDidLoad() {
-        self.ref = FIRDatabase.database().reference()
-        let userLocation = ViewController.userLocation
-        var advname1 = ""
-        var advaddress1 = ""
-        var advtarget1 = ""
-        var advphoneNumber1 = ""
-        var advemail1 = ""
-        var advhours1 = 0.0
-        var advmonday1 = true
-        var advtuesday1 = true
-        var advwednesday1 = true
-        var advthursday1 = true
-        var advfriday1 = true
-        var advsaturday1 = true
-        var advsunday1 = true
-        var advurl1 = ""
-        var advnewaddress1 = ""
-        self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            for agency in snapshot.children {
-                advname1 = agency.value!["Agency Name"] as! String
-                advaddress1 = agency.value!["Coordinates"] as! String
-                advtarget1 = agency.value!["Area of Interest"] as! String
-                advphoneNumber1 = agency.value!["Phone Number"] as! String
-                advemail1 = agency.value!["Contact"] as! String
-                advhours1 =  agency.value!["Number of Hours"] as! Double
-                advmonday1 = agency.value!["isMonday"] as! Bool
-                advtuesday1 = agency.value!["isTuesday"] as! Bool
-                advwednesday1 = agency.value!["isWednesday"] as! Bool
-                advthursday1 = agency.value!["isThursday"] as! Bool
-                advfriday1 = agency.value!["isFriday"] as! Bool
-                advsaturday1 = agency.value!["isSaturday"] as! Bool
-                advsunday1 = agency.value!["isSunday"] as! Bool
-                advurl1 = agency.value!["Website"] as! String
-                advnewaddress1 = agency.value!["Address"] as! String
-                
-                let coord = advaddress1.componentsSeparatedByString(" ")
-                var location: CLLocation
-                location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
-                
-                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
-            
-                self.advListOfAgencies.append(Agency.init(name: advname1, distance: dist, target: advtarget1, phoneNumber: advphoneNumber1, email: advemail1, numberOfHours: advhours1, isSelectedMonday: advmonday1, isSelectedTuesday: advtuesday1, isSelectedWednesday: advwednesday1, isSelectedThursday: advthursday1, isSelectedFriday: advfriday1, isSelectedSaturday: advsaturday1, isSelectedSunday: advsunday1, newurl: advurl1, newaddress: advnewaddress1))
-                
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        
         super.viewDidLoad()
-        advListOfAgencies.removeAll()
         var scrollFrame = CGRect();
         scrollFrame.origin = advscrollViews.frame.origin;
         scrollFrame.size = CGSizeMake(screenSize.size.width, screenSize.size.height);
@@ -211,29 +158,10 @@ class AdvSearchViewController: UIViewController {
         advInterestPickerValue = areas[row]
     }
     
-//    func readFile() {
-//        var strFile = ""
-//        let strpath = NSBundle.mainBundle().pathForResource("VolData", ofType: "csv")
-//        do{
-//            strFile = try String(contentsOfFile: strpath!, encoding: NSUTF8StringEncoding)
-//        }
-//        catch{
-//            NSLog("There was a problem")
-//        }
-//        var data: [AnyObject] = [AnyObject]()
-//        data = strFile.componentsSeparatedByString("\n")
-//        for var y = 0; y < data.count; y += 1{
-//            var translation = data[y].componentsSeparatedByString(",");
-//            advStrArray.append(data[y].componentsSeparatedByString(","));
-//        for var i = 0; i < 15; i += 1 {
-//            advStrArray[y].append(translation [i]);
-//        }
-//        }
-//    }
     func advshellSortAgencies(userPreferences: AdvUserInput)
     {
         for (var x = 0; x < AdvSearchViewController.advSortedListOfAgencies.count-1; x += 1) {
-            for(var w=0; w < AdvSearchViewController.advSortedListOfAgencies.count-1; w+=1)
+            for(var w = 0; w < AdvSearchViewController.advSortedListOfAgencies.count-1; w+=1)
             {
                 if(AdvSearchViewController.advSortedListOfAgencies[w+1].percentMatch(userPreferences) > AdvSearchViewController.advSortedListOfAgencies[w].percentMatch(userPreferences))
                 {
@@ -249,44 +177,10 @@ class AdvSearchViewController: UIViewController {
         
         let user1 = AdvUserInput(areaOfInterest:advInterestPickerValue, numberOfHoursLeft:advSelectedHour,isSelectedMonday: advSelectedMonday, isSelectedTuesday: advSelectedTuesday, isSelectedWednesday:advSelectedWednesday, isSelectedThursday:advSelectedThursday, isSelectedFriday:advSelectedFriday, isSelectedSaturday: advSelectedSaturday, isSelectedSunday:advSelectedSunday, numDaysLeft: advSelectedDays)
         
-        
-//        for var x = 1; x < advStrArray.count; x += 1 {
-//            advname1 = advStrArray [x][0] as! String
-//            advaddress1 = advStrArray[x][1] as! String
-//            advtarget1 = advStrArray[x][2] as! String
-//            advphoneNumber1 = (advStrArray[x])[3] as! String
-//            advemail1 = (advStrArray[x])[4] as! String
-//            advhours1 =  Double((advStrArray[x])[5] as! String)!
-//            if(((advStrArray[x])[6] as! String) == "TRUE"){advmonday1 = true}
-//            else{advmonday1 = false}
-//            if(((advStrArray[x])[7] as! String) == "TRUE"){advtuesday1 = true}
-//            else{advtuesday1 = false}
-//            if(((advStrArray[x])[8] as! String) == "TRUE"){advwednesday1 = true}
-//            else{advwednesday1 = false}
-//            if(((advStrArray[x])[9] as! String) == "TRUE"){advthursday1 = true}
-//            else{advthursday1 = false}
-//            if(((advStrArray[x])[10] as! String) == "TRUE"){advfriday1 = true}
-//            else{advfriday1 = false}
-//            if(((advStrArray[x])[11] as! String) == "TRUE"){advsaturday1 = true}
-//            else{advsaturday1 = false}
-//            if(((advStrArray[x])[12] as! String) == "TRUE"){advsunday1 = true}
-//            else{advsunday1 = false}
-//            advurl1 = (advStrArray[x])[14] as! String
-//            advnewaddress1 = (advStrArray[x])[13] as! String
-//        
-//            let coord = advaddress1.componentsSeparatedByString(" ")
-//            
-//            location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
-//            
-//            let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
-//            
-//            advListOfAgencies.append(Agency(name: advname1, distance: dist, target: advtarget1, phoneNumber: advphoneNumber1, email: advemail1, numberOfHours: advhours1, isSelectedMonday: advmonday1, isSelectedTuesday: advtuesday1, isSelectedWednesday: advwednesday1, isSelectedThursday: advthursday1, isSelectedFriday: advfriday1, isSelectedSaturday: advsaturday1, isSelectedSunday: advsunday1, newurl: advurl1, newaddress: advnewaddress1))
-//        }
-        
-        for var y = 0; y < advListOfAgencies.count; y += 1    {
-            if(user1.advGetUserAreaOfInterest() == advListOfAgencies[y].getTarget())
+        for var y = 0; y < AppDelegate.listOfAgencies.count; y += 1    {
+            if(user1.advGetUserAreaOfInterest() == AppDelegate.listOfAgencies[y].getTarget())
             {
-            AdvSearchViewController.advSortedListOfAgencies.append(advListOfAgencies[y])
+            AdvSearchViewController.advSortedListOfAgencies.append(AppDelegate.listOfAgencies[y])
             }
         }
         advshellSortAgencies(user1)

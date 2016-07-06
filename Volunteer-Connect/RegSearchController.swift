@@ -6,9 +6,7 @@
 //
 
 import UIKit
-import CoreLocation
-import Firebase
-import FirebaseDatabase
+
 class RegSearchController: UIViewController {
     /*
     Instance Variables
@@ -27,9 +25,7 @@ class RegSearchController: UIViewController {
     var selectedHour = 0.0
     var selectedRadius = 0.0
     var strArray = [[AnyObject]]()
-    static var listOfAgencies = [Agency]()
     static var sortedListOfAgencies = [Agency]()
-    var ref = FIRDatabaseReference.init()
     /*
     Instances of UI Elements
     */
@@ -61,55 +57,6 @@ class RegSearchController: UIViewController {
     
     @IBOutlet weak var scrollViews: UIScrollView!
     override func viewDidLoad() {
-        self.ref = FIRDatabase.database().reference()
-        let userLocation = ViewController.userLocation
-        var name1 = ""
-        var address1 = ""
-        var target1 = ""
-        var phoneNumber1 = ""
-        var email1 = ""
-        var hours1 = 0.0
-        var monday1 = true
-        var tuesday1 = true
-        var wednesday1 = true
-        var thursday1 = true
-        var friday1 = true
-        var saturday1 = true
-        var sunday1 = true
-        var url1 = ""
-        var newaddress1 = ""
-        self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
-            for agency in snapshot.children {
-                name1 = agency.value!["Agency Name"] as! String
-                address1 = agency.value!["Coordinates"] as! String
-                target1 = agency.value!["Area of Interest"] as! String
-                phoneNumber1 = agency.value!["Phone Number"] as! String
-                email1 = agency.value!["Contact"] as! String
-                hours1 =  agency.value!["Number of Hours"] as! Double
-                monday1 = agency.value!["isMonday"] as! Bool
-                tuesday1 = agency.value!["isTuesday"] as! Bool
-                wednesday1 = agency.value!["isWednesday"] as! Bool
-                thursday1 = agency.value!["isThursday"] as! Bool
-                friday1 = agency.value!["isFriday"] as! Bool
-                saturday1 = agency.value!["isSaturday"] as! Bool
-                sunday1 = agency.value!["isSunday"] as! Bool
-                url1 = agency.value!["Website"] as! String
-                newaddress1 = agency.value!["Address"] as! String
-                
-                let coord = address1.componentsSeparatedByString(" ")
-                var location: CLLocation
-                location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
-                
-                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
-                
-                RegSearchController.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
-                print(name1)
-                
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = scrollViews.frame.origin;
@@ -139,7 +86,7 @@ class RegSearchController: UIViewController {
         RadiusofSearchLabel.center = CGPoint(x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.40)
         InterestPicker.center = CGPoint (x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.15)
         AreaOfInterestLabel.center = CGPoint(x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.03)
-        RegSearchController.listOfAgencies.removeAll()
+        //RegSearchController.listOfAgencies.removeAll()
         RegSearchController.sortedListOfAgencies.removeAll()
         HourSlider.center = CGPoint(x: (screenSize.size.width/2) - (screenSize.size.width * 0.1) , y: screenSize.size.height * 0.35)
         RadiusSlider.center = CGPoint(x: (screenSize.size.width/2) - (screenSize.size.width * 0.1) , y: screenSize.size.height * 0.452)
@@ -311,16 +258,15 @@ class RegSearchController: UIViewController {
 //            listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
 //            
 //        }
-        for var y = 0; y < RegSearchController.listOfAgencies.count; y += 1
+        for var y = 0; y < AppDelegate.listOfAgencies.count; y += 1
             {
-            if(user.getUserAreaOfInterest() == RegSearchController.listOfAgencies[y].getTarget())
+            if(user.getUserAreaOfInterest() == AppDelegate.listOfAgencies[y].getTarget())
             {
-            RegSearchController.sortedListOfAgencies.append(RegSearchController.listOfAgencies[y])
+            RegSearchController.sortedListOfAgencies.append(AppDelegate.listOfAgencies[y])
             }
         }
         
     shellSortAgencies(user);
-    //print(RegSearchController.sortedListOfAgencies[0].getName())
         
     }
 }
