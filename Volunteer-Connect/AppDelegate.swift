@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         var sunday1 = true
         var url1 = ""
         var newaddress1 = ""
+        var newdescription = ""
         self.ref.child("Agency").observeSingleEventOfType(.Value, withBlock: { (snapshot) in
             for agency in snapshot.children {
                 name1 = agency.value!["Agency Name"] as! String
@@ -65,14 +66,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 sunday1 = agency.value!["isSunday"] as! Bool
                 url1 = agency.value!["Website"] as! String
                 newaddress1 = agency.value!["Address"] as! String
-                
+                newdescription = agency.value!["Description"] as! String
                 let coord = address1.componentsSeparatedByString(" ")
                 var location: CLLocation
                 location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
                 
                 let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
                 
-                AppDelegate.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
+                AppDelegate.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1, descript: newdescription))
                 print(name1)
                 
             }

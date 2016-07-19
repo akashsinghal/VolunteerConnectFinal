@@ -10,11 +10,21 @@ import UIKit
 import MessageUI
 
 class ResultViewController: UIViewController, MFMailComposeViewControllerDelegate {
+    @IBOutlet weak var distancetext: UILabel!
+    @IBOutlet weak var hourstext: UILabel!
+    @IBOutlet weak var daystext: UILabel!
+    @IBOutlet weak var contacttext: UILabel!
+    @IBOutlet weak var descriptionlabel: UILabel!
     @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var days: UILabel!
     @IBOutlet weak var contact: UILabel!
     @IBOutlet weak var descriptiontext: UITextView!
+    @IBOutlet weak var contacttextreal: UILabel!
     
+    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var phoneButton: UIButton!
+    
+    @IBOutlet weak var directionButton: UIButton!
     @IBOutlet weak var backgroundimg: UIImageView!
     @IBOutlet weak var resultviewnavbar: UINavigationBar!
     @IBOutlet weak var distance: UILabel!
@@ -30,13 +40,33 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mailComposeViewController.mailComposeDelegate = self
+        distancetext.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.31)) , y: screenSize.height * 0.135)
+        distance.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.31) + 175) , y: screenSize.height * 0.135)
+        hourstext.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.335)) , y: screenSize.height * 0.22)
+        hours.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.335) + 160) , y: screenSize.height * 0.22)
+        daystext.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.345)) , y: screenSize.height * 0.305)
+        days.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.345) + 175) , y: screenSize.height * 0.305)
+        contacttextreal.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.315)) , y: screenSize.height * 0.39)
+        contact.center = CGPoint(x: ((screenSize.size.width / 2) - (screenSize.size.width * 0.315) + 175) , y: screenSize.height * 0.39)
+        contacttext.center = CGPoint(x: ((screenSize.size.width / 2)) , y: (screenSize.height * 0.45))
+        
+                mailComposeViewController.mailComposeDelegate = self
         if(screenSize.size.width <= 350)
         {
+            descriptiontext.center = CGPoint(x: ((screenSize.size.width / 2) + 5) , y: (screenSize.height * 0.66))
             resultviewnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 50)
+            emailButton.center = CGPoint(x: ((screenSize.size.width * 0.15)) , y: (screenSize.height * 0.875) + 25)
+            phoneButton.center = CGPoint(x: ((screenSize.size.width * 0.455)) , y: (screenSize.height * 0.875) + 25)
+            directionButton.center = CGPoint(x: ((screenSize.size.width * 0.805)) , y: (screenSize.height * 0.875) + 25)
+
         }
         else
         {
+            descriptiontext.center = CGPoint(x: ((screenSize.size.width / 2) + 5) , y: (screenSize.height * 0.63))
+            emailButton.center = CGPoint(x: ((screenSize.size.width * 0.15)) , y: (screenSize.height * 0.875))
+            phoneButton.center = CGPoint(x: ((screenSize.size.width * 0.455)) , y: (screenSize.height * 0.875))
+            directionButton.center = CGPoint(x: ((screenSize.size.width * 0.805)) , y: (screenSize.height * 0.875))
+
             resultviewnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 60)
         }
         backgroundimg.frame=CGRectMake(0, 0, screenSize.size.width, screenSize.size.height);

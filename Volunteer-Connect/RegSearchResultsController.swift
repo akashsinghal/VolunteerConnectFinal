@@ -84,7 +84,7 @@ class RegSearchResultsController: UIViewController{
 //        cell.infoButton.addTarget(self, action: #selector(RegSearchResultsController.infoAction(_:)) , forControlEvents: .TouchUpInside)
 //        cell.urlbutton.addTarget(self, action: #selector(RegSearchResultsController.sendURL(_:)) , forControlEvents: .TouchUpInside)
 //        cell.phoneButton.addTarget(self, action: #selector(RegSearchResultsController.callPhone(_:)) , forControlEvents: .TouchUpInside)
-        cell.titleLabel.frame = CGRectMake(7, 14, screenSize.size.width - 98, 20);
+        cell.titleLabel.frame = CGRectMake(7, 14, screenSize.size.width-15, 20);
 //        cell.urlbutton.center = CGPoint( x: (screenSize.size.width) - 20 , y: 23);
 //        cell.phoneButton.center = CGPoint(x: (screenSize.size.width) - 47 , y: 23);
 //        cell.infoButton.center = CGPoint(x: (screenSize.size.width) - 76 , y: 23);
@@ -100,9 +100,9 @@ class RegSearchResultsController: UIViewController{
         var textBoxString = ""
         destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
         destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
-        destination!.distanceText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].agencyDistance))
+        destination!.distanceText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].agencyDistance)) + " mi"
         destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()
-        destination!.hoursText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].getHours()))
+        destination!.hoursText = String(round(RegSearchResultsController.printListOfAgencies[inndex!].getHours())) + " hrs"
         if (RegSearchResultsController.printListOfAgencies[inndex!].getIsOpenSunday())   {
             textBoxString =  textBoxString + "Sun "
         }
@@ -131,7 +131,7 @@ class RegSearchResultsController: UIViewController{
             textBoxString = textBoxString + "Sat "
         }
         destination!.daysText = textBoxString;
-        destination!.descriptionText = "Hello, my name is";
+        destination!.descriptionText = RegSearchResultsController.printListOfAgencies[inndex!].getDescription();
         destination!.emailText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail();
         
     }

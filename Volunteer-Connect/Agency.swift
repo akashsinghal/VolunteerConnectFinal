@@ -24,8 +24,9 @@ class Agency{
     var agencyOpenSunday: Bool
     var agencyURL: String
     var agencyAddress: String
+    var agencyDescription : String
     
-    init(name: String, distance: Double, target:String, phoneNumber:String, email:String, numberOfHours:Double, isSelectedMonday:Bool,isSelectedTuesday: Bool, isSelectedWednesday:Bool, isSelectedThursday:Bool, isSelectedFriday:Bool, isSelectedSaturday: Bool, isSelectedSunday:Bool, newurl:String, newaddress: String)
+    init(name: String, distance: Double, target:String, phoneNumber:String, email:String, numberOfHours:Double, isSelectedMonday:Bool,isSelectedTuesday: Bool, isSelectedWednesday:Bool, isSelectedThursday:Bool, isSelectedFriday:Bool, isSelectedSaturday: Bool, isSelectedSunday:Bool, newurl:String, newaddress: String, descript: String)
     {
         agencyName = name
         agencyDistance = distance
@@ -42,6 +43,7 @@ class Agency{
         agencyOpenSunday = isSelectedSunday
         agencyURL = newurl;
         agencyAddress = newaddress;
+        agencyDescription = descript;
     }
     
     init()  {
@@ -60,6 +62,7 @@ class Agency{
         agencyOpenSunday = false
         agencyURL = ""
         agencyAddress = ""
+        agencyDescription = ""
 
     }
     
@@ -119,6 +122,10 @@ class Agency{
     func getDistance()->Double
     {
         return agencyDistance; 
+    }
+    func getDescription()-> String
+    {
+        return agencyDescription;
     }
 
     

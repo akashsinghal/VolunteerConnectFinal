@@ -9,36 +9,45 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="  Copyright (c) 2016 Girase Singhal. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="626" width="336" height="21"/>
+                    <rect key="frame" x="20" y="567" width="336" height="12.5"/>
                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logowithtext" translatesAutoresizingMaskIntoConstraints="NO" id="q5p-fV-roe">
-                    <rect key="frame" x="0.0" y="142" width="375" height="383"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logowithtext" translatesAutoresizingMaskIntoConstraints="NO" id="q5p-fV-roe">
+                    <rect key="frame" x="0.0" y="-151" width="600" height="613"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="q5p-fV-roe" secondAttribute="height" multiplier="375:383" id="j42-dT-Qq8"/>
                     </constraints>
                 </imageView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="IKu-eL-50W">
-                    <rect key="frame" x="177" y="562" width="20" height="20"/>
-                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Database is loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRH-qs-VYO">
+                    <rect key="frame" x="218" y="519" width="164" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="WhT-mY-e9A"/>
+                        <constraint firstAttribute="width" constant="164" id="dUv-VV-PeD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.83196504979859265" green="0.85971855015381693" blue="0.89525711726998491" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="KRH-qs-VYO" secondAttribute="bottom" constant="23" id="8QE-qy-kBJ"/>
                 <constraint firstAttribute="trailing" secondItem="q5p-fV-roe" secondAttribute="trailing" id="MU1-Zh-yDg"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="TWG-or-55C"/>
                 <constraint firstItem="q5p-fV-roe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dck-Pr-xhs"/>
+                <constraint firstItem="KRH-qs-VYO" firstAttribute="top" secondItem="q5p-fV-roe" secondAttribute="bottom" constant="57" id="g5U-4b-wxI"/>
                 <constraint firstItem="q5p-fV-roe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pJM-29-kki"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="s2O-Mf-c0c"/>
+                <constraint firstItem="KRH-qs-VYO" firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="yDn-WX-xNS"/>
                 <constraint firstItem="q5p-fV-roe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zkL-a6-2PD"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="547.5" y="454.5"/>
         </view>
     </objects>

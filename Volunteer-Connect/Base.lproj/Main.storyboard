@@ -690,14 +690,6 @@
                                     <action selector="callPhone:" destination="b0g-cq-LpL" eventType="touchUpInside" id="zxK-gn-vbX"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" id="nET-m4-Rik">
-                                <rect key="frame" x="20" y="326" width="335" height="195"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8K0-Ej-Lg1">
                                 <rect key="frame" x="141" y="297" width="93" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -706,21 +698,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9SS-EG-zBg">
-                                <rect key="frame" x="95" y="136" width="260" height="21"/>
+                                <rect key="frame" x="107" y="136" width="256" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4gV-r7-HbY">
-                                <rect key="frame" x="87" y="192" width="288" height="21"/>
+                                <rect key="frame" x="82" y="192" width="293" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wZE-XU-3XK">
-                                <rect key="frame" x="110" y="253" width="245" height="21"/>
+                                <rect key="frame" x="107" y="253" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -734,7 +726,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QLn-8p-Pic">
-                                <rect key="frame" x="116" y="80" width="239" height="21"/>
+                                <rect key="frame" x="107" y="80" width="268" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -761,25 +753,41 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" id="nET-m4-Rik">
+                                <rect key="frame" x="24" y="326" width="326" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.792156862745098" green="0.82352941176470584" blue="0.87450980392156863" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="STC-yq-uAb"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="backgroundimg" destination="2rk-uP-O34" id="5cq-XD-hg0"/>
                         <outlet property="contact" destination="wZE-XU-3XK" id="cGZ-DE-8Ri"/>
+                        <outlet property="contacttext" destination="8K0-Ej-Lg1" id="c76-Zw-ygO"/>
+                        <outlet property="contacttextreal" destination="7w2-18-1RU" id="Zr7-sF-RfV"/>
                         <outlet property="days" destination="4gV-r7-HbY" id="9I2-ED-t9n"/>
+                        <outlet property="daystext" destination="u81-dQ-xUT" id="a8h-dC-KFw"/>
+                        <outlet property="descriptionlabel" destination="8K0-Ej-Lg1" id="4wm-qp-Leq"/>
                         <outlet property="descriptiontext" destination="nET-m4-Rik" id="CsE-TX-OgW"/>
+                        <outlet property="directionButton" destination="RQc-Sh-O0i" id="cPJ-tG-dYH"/>
                         <outlet property="distance" destination="QLn-8p-Pic" id="wba-bG-wog"/>
+                        <outlet property="distancetext" destination="9lH-zG-EVQ" id="jKd-HX-CW7"/>
+                        <outlet property="emailButton" destination="n6M-lJ-8nk" id="eG0-Y0-euL"/>
                         <outlet property="hours" destination="9SS-EG-zBg" id="WsI-Xv-CtC"/>
+                        <outlet property="hourstext" destination="Nv8-v5-ORi" id="3CL-70-ZPb"/>
+                        <outlet property="phoneButton" destination="IH9-iU-5JG" id="fJu-Qi-Cja"/>
                         <outlet property="resultviewnavbar" destination="7oU-pd-bG5" id="Lpt-I1-3nV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6t-4s-lbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589.5" y="319.5"/>
+            <point key="canvasLocation" x="1588.5" y="318.5"/>
         </scene>
     </scenes>
     <resources>
