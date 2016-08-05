@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040A38C4B0E1009D45A5669D /* Pods_Volunteer_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D00D11BB5B30A8BFB09CED /* Pods_Volunteer_ConnectTests.framework */; };
-		3801B0621CAF46B800BE31E2 /* VolData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3801B0611CAF46B800BE31E2 /* VolData.csv */; };
 		3821035D1C28C20200B26E65 /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821035C1C28C20200B26E65 /* UserInput.swift */; };
 		383BB73F1CF0FB5F007C107D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 383BB73E1CF0FB5F007C107D /* GoogleService-Info.plist */; };
 		388E86981C27338B00734484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E86971C27338B00734484 /* AppDelegate.swift */; };
@@ -40,7 +39,6 @@
 /* Begin PBXFileReference section */
 		1865CDC22A43E512268B2B41 /* Pods-Volunteer-ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-ConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
 		26ECA699FA4CB6E8CDA6E140 /* Pods-Volunteer-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect.debug.xcconfig"; sourceTree = "<group>"; };
-		3801B0611CAF46B800BE31E2 /* VolData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VolData.csv; path = ../VolData.csv; sourceTree = "<group>"; };
 		3821035C1C28C20200B26E65 /* UserInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInput.swift; sourceTree = "<group>"; };
 		383BB73E1CF0FB5F007C107D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		388E86921C27338B00734484 /* Volunteer-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Volunteer-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +107,6 @@
 		388E86941C27338B00734484 /* Volunteer-Connect */ = {
 			isa = PBXGroup;
 			children = (
-				3801B0611CAF46B800BE31E2 /* VolData.csv */,
 				38E954221C2DE2BC0073D169 /* TableViewCell.swift */,
 				388E86971C27338B00734484 /* AppDelegate.swift */,
 				388E86991C27338B00734484 /* ViewController.swift */,
@@ -262,7 +259,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3801B0621CAF46B800BE31E2 /* VolData.csv in Resources */,
 				388E869D1C27338B00734484 /* Main.storyboard in Resources */,
 				383BB73F1CF0FB5F007C107D /* GoogleService-Info.plist in Resources */,
 				388E86A21C27338B00734484 /* LaunchScreen.xib in Resources */,
