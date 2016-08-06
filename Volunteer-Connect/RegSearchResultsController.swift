@@ -78,16 +78,7 @@ class RegSearchResultsController: UIViewController{
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
         cell.backgroundColor = cell.contentView.backgroundColor;
         cell.titleLabel.text = self.objects.objectAtIndex(indexPath.row) as? String
-//        cell.infoButton.tag = indexPath.row;
-//        cell.urlbutton.tag = indexPath.row;
-//        cell.phoneButton.tag = indexPath.row;
-//        cell.infoButton.addTarget(self, action: #selector(RegSearchResultsController.infoAction(_:)) , forControlEvents: .TouchUpInside)
-//        cell.urlbutton.addTarget(self, action: #selector(RegSearchResultsController.sendURL(_:)) , forControlEvents: .TouchUpInside)
-//        cell.phoneButton.addTarget(self, action: #selector(RegSearchResultsController.callPhone(_:)) , forControlEvents: .TouchUpInside)
         cell.titleLabel.frame = CGRectMake(7, 14, screenSize.size.width-15, 20);
-//        cell.urlbutton.center = CGPoint( x: (screenSize.size.width) - 20 , y: 23);
-//        cell.phoneButton.center = CGPoint(x: (screenSize.size.width) - 47 , y: 23);
-//        cell.infoButton.center = CGPoint(x: (screenSize.size.width) - 76 , y: 23);
         
         return cell
     }
@@ -95,6 +86,7 @@ class RegSearchResultsController: UIViewController{
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(!(sender is UIBarButtonItem)){
         let destination = segue.destinationViewController as? ResultViewController
         let inndex = tableView.indexPathForSelectedRow?.row
         var textBoxString = ""
@@ -132,11 +124,12 @@ class RegSearchResultsController: UIViewController{
         }
         destination!.daysText = textBoxString;
         destination!.descriptionText = RegSearchResultsController.printListOfAgencies[inndex!].getDescription();
-        destination!.emailText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail();
+            destination!.emailText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail();}
         
     }
     
     
+
 //    @IBAction func infoAction(sender: UIButton)
 //    {
 //        RegSearchResultsController.itemNum = sender.tag
