@@ -93,7 +93,7 @@
         <!--Adv Search View Controller-->
         <scene sceneID="xNd-tL-oPr">
             <objects>
-                <viewController id="brk-B9-W3A" customClass="AdvSearchViewController" customModule="Volunteer_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="brk-B9-W3A" customClass="AdvSearchViewController" customModule="Volunteer_Connect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tus-oY-Z3q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
