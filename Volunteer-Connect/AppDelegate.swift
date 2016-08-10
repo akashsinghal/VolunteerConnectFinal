@@ -20,19 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     static var userLocation = CLLocation()
     static var listOfAgencies = [Agency]()
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationManager.stopUpdatingLocation()
         AppDelegate.userLocation = self.locationManager.location!
+        print("hi")
+        self.locationManager.stopUpdatingLocation()
+        
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.locationManager.requestWhenInUseAuthorization();
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         FIRApp.configure()
         self.ref = FIRDatabase.database().reference()
-        let userLocation = AppDelegate.userLocation
+        //let userLocation = AppDelegate.userLocation
+        print(AppDelegate.userLocation.coordinate.latitude);
+        print(AppDelegate.userLocation.coordinate.longitude);
         var name1 = ""
         var address1 = ""
         var target1 = ""
@@ -70,11 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 let coord = address1.componentsSeparatedByString(" ")
                 var location: CLLocation
                 location = CLLocation(latitude: Double(coord[0])!, longitude: Double(coord[1])!)
-                
-                let dist = (userLocation.distanceFromLocation(location) / 1000) * 0.62137119
+                let dist = (AppDelegate.userLocation.distanceFromLocation(location) / 1000) * 0.62137119
                 
                 AppDelegate.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1, descript: newdescription))
-                print(name1)
+                //print(newaddress1)
                 
             }
         }) { (error) in

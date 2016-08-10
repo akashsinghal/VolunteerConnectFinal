@@ -137,7 +137,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBAction func getDirections(sender: UIButton) {
         var tempUrl = "http://maps.apple.com/?daddr=\(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress())&dirflg=d&t=h"
         tempUrl = tempUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        
+        print(tempUrl)
         if(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress() != "N/A")
         {
             if let url = NSURL(string: tempUrl){
