@@ -89,6 +89,7 @@ class RegSearchResultsController: UIViewController{
         if(!(sender is UIBarButtonItem)){
         let destination = segue.destinationViewController as? ResultViewController
         let inndex = tableView.indexPathForSelectedRow?.row
+            RegSearchResultsController.itemNum = inndex!;
         var textBoxString = ""
         destination!.agencyname = RegSearchResultsController.printListOfAgencies[inndex!].getName()
         destination!.contactText = RegSearchResultsController.printListOfAgencies[inndex!].getEmail()

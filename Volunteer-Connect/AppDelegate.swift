@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     static var listOfAgencies = [Agency]()
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         AppDelegate.userLocation = self.locationManager.location!
-        print("hi")
         self.locationManager.stopUpdatingLocation()
         
     }

@@ -99,7 +99,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mc = MFMailComposeViewController()
         mc.mailComposeDelegate = self
-        
+        emailText = RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getEmail()
         mc.setToRecipients([emailText])
         mc.setSubject("Interested in Volunteering")
         
@@ -117,9 +117,9 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
         
     }
     @IBAction func callPhone(sender: UIButton) {
-        if(RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber() != "N/A")
+        if(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getPhoneNumber() != "N/A")
         {
-            let callPhoneNumber:NSURL = NSURL(string: "telprompt://" + RegSearchResultsController.printListOfAgencies[sender.tag].getPhoneNumber())!
+            let callPhoneNumber:NSURL = NSURL(string: "telprompt://" + RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getPhoneNumber())!
             UIApplication.sharedApplication().openURL(callPhoneNumber)
         }
         else
@@ -137,7 +137,7 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBAction func getDirections(sender: UIButton) {
         var tempUrl = "http://maps.apple.com/?daddr=\(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress())&dirflg=d&t=h"
         tempUrl = tempUrl.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        print(tempUrl)
+        //print(RegSearchResultsController.itemNum)
         if(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getAddress() != "N/A")
         {
             if let url = NSURL(string: tempUrl){
