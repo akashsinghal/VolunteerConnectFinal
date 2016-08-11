@@ -35,8 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         FIRApp.configure()
         self.ref = FIRDatabase.database().reference()
         //let userLocation = AppDelegate.userLocation
-        print(AppDelegate.userLocation.coordinate.latitude);
-        print(AppDelegate.userLocation.coordinate.longitude);
         var name1 = ""
         var address1 = ""
         var target1 = ""
@@ -77,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                 let dist = (AppDelegate.userLocation.distanceFromLocation(location) / 1000) * 0.62137119
                 
                 AppDelegate.listOfAgencies.append(Agency.init(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1, descript: newdescription))
-                //print(newaddress1)
+                
                 
             }
         }) { (error) in

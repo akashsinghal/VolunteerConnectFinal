@@ -86,14 +86,29 @@ class ResultViewController: UIViewController, MFMailComposeViewControllerDelegat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+    func isValidEmail(testStr:String) -> Bool {
+        let format1 = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let check = NSPredicate(format:"SELF MATCHES %@", format1)
+        return check.evaluateWithObject(testStr)
+    }
     
     @IBAction func sendMail(sender: UIButton) {
+        if(isValidEmail(RegSearchResultsController.printListOfAgencies[RegSearchResultsController.itemNum].getEmail()))
+        {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.presentViewController(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
+        }
+        }
+        else{
+            let control = UIAlertController(title: "No Email Found", message:
+                "Sorry, but this agency doesn't have an email :(", preferredStyle: UIAlertControllerStyle.Alert)
+            control.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            
+            self.presentViewController(control, animated: true, completion: nil)
         }
     }
     func configuredMailComposeViewController() -> MFMailComposeViewController {
