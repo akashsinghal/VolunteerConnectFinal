@@ -17,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMailCompose
     static var userLocation = CLLocation()
     
     let mailComposeViewController = MFMailComposeViewController()
-    var screenSize:CGRect = UIScreen.mainScreen().bounds
+    var screenSize:CGRect = UIScreen.main.bounds
     
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var RegularSearchLabel: UIButton!
@@ -37,7 +37,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMailCompose
         
         TitleLabel.center = CGPoint(x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.09)
         HomeScreenPic.center = CGPoint(x: (screenSize.size.width / 2) , y: screenSize.size.height * 0.45)
-        HomeScreenPic.transform = CGAffineTransformMakeScale(screenSize.size.width/310, screenSize.size.width/310);
+        HomeScreenPic.transform = CGAffineTransform(scaleX: screenSize.size.width/310, y: screenSize.size.width/310);
         RegularSearchLabel.center = CGPoint(x: (screenSize.size.width / 2) - (screenSize.size.width * 0.2) , y: screenSize.size.height * 0.8);
         InARushLabel.center = CGPoint(x: (screenSize.size.width / 2) + (screenSize.size.width * 0.25) , y: screenSize.size.height * 0.8);
         ContactUsLabel.center = CGPoint(x: (screenSize.size.width / 2) - (screenSize.size.width * 0.2) , y: screenSize.size.height * 0.9);
@@ -50,23 +50,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMailCompose
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func goToRegSearch(sender: AnyObject) {
+    @IBAction func goToRegSearch(_ sender: AnyObject) {
         ViewController.searchType = 1;
     }
     
-    @IBAction func goToAdvSearch(sender: AnyObject) {
+    @IBAction func goToAdvSearch(_ sender: AnyObject) {
         ViewController.searchType = 2;
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
         ViewController.userLocation = self.locationManager.location!
     }
     
-    @IBAction func contactUs(sender: UIButton) {
+    @IBAction func contactUs(_ sender: UIButton) {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            self.present(mailComposeViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
@@ -88,14 +88,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MFMailCompose
     }
     
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
         
     }
     
-    @IBAction func userAddAgency(sender: UIButton) {
-        if let url = NSURL(string: "https://docs.google.com/forms/d/1nJR-8aBcpZFzk1MhAufyyS5XUtTgYGkt4WrPQDNkZs4/viewform?usp=send_form") {
-            UIApplication.sharedApplication().openURL(url)
+    @IBAction func userAddAgency(_ sender: UIButton) {
+        if let url = URL(string: "https://docs.google.com/forms/d/1nJR-8aBcpZFzk1MhAufyyS5XUtTgYGkt4WrPQDNkZs4/viewform?usp=send_form") {
+            UIApplication.shared.openURL(url)
         }
     }
 }

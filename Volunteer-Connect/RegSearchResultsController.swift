@@ -18,7 +18,7 @@ class RegSearchResultsController: UIViewController{
     
     var objects: NSMutableArray! = NSMutableArray()
     static var printListOfAgencies = [Agency]();
-    var screenSize:CGRect = UIScreen.mainScreen().bounds
+    var screenSize:CGRect = UIScreen.main.bounds
     static var itemNum = 0
     
     override func viewDidLoad() {
@@ -34,60 +34,60 @@ class RegSearchResultsController: UIViewController{
         {
             RegSearchResultsController.printListOfAgencies = AdvSearchViewController.advSortedListOfAgencies;
         }
-        for (var y = 0; y < RegSearchResultsController.printListOfAgencies.count; y += 1)
+        for (y in 0 ..< RegSearchResultsController.printListOfAgencies.count)
         {
-            self.objects.addObject(RegSearchResultsController.printListOfAgencies[y].getName());
+            self.objects.add(RegSearchResultsController.printListOfAgencies[y].getName());
         }
         
         self.tableView.reloadData()
         
         if(screenSize.size.width <= 350)
         {
-            searchnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 50)
+            searchnavbar.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: 50)
         }
         else
         {
-            searchnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 60)
+            searchnavbar.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: 60)
         }
-        searchtable.frame=CGRectMake(0, 60, screenSize.size.width, screenSize.size.height - 60)
+        searchtable.frame=CGRect(x: 0, y: 60, width: screenSize.size.width, height: screenSize.size.height - 60)
         
         
-        backgroundimg.frame=CGRectMake(0, 0, screenSize.size.width, screenSize.size.height);
-        let blur = UIBlurEffect (style: UIBlurEffectStyle.Light);
+        backgroundimg.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: screenSize.size.height);
+        let blur = UIBlurEffect (style: UIBlurEffectStyle.light);
         let blur2 = UIVisualEffectView(effect: blur);
         blur2.frame = backgroundimg.bounds;
-        backgroundimg.insertSubview(blur2, atIndex: 0)
+        backgroundimg.insertSubview(blur2, at: 0)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int
     {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.objects.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell
     {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.backgroundColor = cell.contentView.backgroundColor;
-        cell.titleLabel.text = self.objects.objectAtIndex(indexPath.row) as? String
-        cell.titleLabel.frame = CGRectMake(7, 14, screenSize.size.width-15, 20);
+        cell.titleLabel.text = self.objects.object(at: indexPath.row) as? String
+        cell.titleLabel.frame = CGRect(x: 7, y: 14, width: screenSize.size.width-15, height: 20);
         
         return cell
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(!(sender is UIBarButtonItem)){
-        let destination = segue.destinationViewController as? ResultViewController
+        let destination = segue.destination as? ResultViewController
         let inndex = tableView.indexPathForSelectedRow?.row
             RegSearchResultsController.itemNum = inndex!;
         var textBoxString = ""

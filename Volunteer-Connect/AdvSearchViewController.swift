@@ -36,7 +36,7 @@ class AdvSearchViewController: UIViewController {
     @IBOutlet weak var advscrollViews: UIScrollView!
     @IBOutlet weak var advStartSeachingButton: UIButton!
     
-    var screenSize:CGRect = UIScreen.mainScreen().bounds
+    var screenSize:CGRect = UIScreen.main.bounds
     var areas = ["Children","Elderly","Developmentally Disabled","Impoverished", "Environment"]
     var advInterestPickerValue = "Children"
     var advSelectedMonday = true
@@ -55,10 +55,10 @@ class AdvSearchViewController: UIViewController {
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = advscrollViews.frame.origin;
-        scrollFrame.size = CGSizeMake(screenSize.size.width, screenSize.size.height);
+        scrollFrame.size = CGSize(width: screenSize.size.width, height: screenSize.size.height);
         advscrollViews.frame = scrollFrame;
-        backgroundimg.frame=CGRectMake(0, 0, screenSize.size.width, screenSize.size.height);
-        let blur = UIBlurEffect (style: UIBlurEffectStyle.Light);
+        backgroundimg.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: screenSize.size.height);
+        let blur = UIBlurEffect (style: UIBlurEffectStyle.light);
         let blur2 = UIVisualEffectView(effect: blur);
         blur2.frame = backgroundimg.bounds;
         backgroundimg.addSubview(blur2);
@@ -87,18 +87,18 @@ class AdvSearchViewController: UIViewController {
         advChangeDaysSlider.center = CGPoint(x: (screenSize.size.width/2) - (screenSize.size.width * 0.1) , y: screenSize.size.height * 0.452)
         advChangeHoursLabel.center = CGPoint(x: (screenSize.size.width/2) + (screenSize.size.width * 0.46) , y: screenSize.size.height * 0.35)
         advChangeDaysLabel.center = CGPoint (x: (screenSize.size.width/2) + (screenSize.size.width * 0.45) , y: screenSize.size.height * 0.452)
-        advInterest.frame=CGRectMake(0, screenSize.size.height * 0.01, screenSize.size.width, screenSize.size.height * 0.3)
+        advInterest.frame=CGRect(x: 0, y: screenSize.size.height * 0.01, width: screenSize.size.width, height: screenSize.size.height * 0.3)
         if(screenSize.size.width <= 350)
         {
-            advChangeHoursSlider.transform = CGAffineTransformMakeScale(0.75, 0.75);
-            advChangeDaysSlider.transform = CGAffineTransformMakeScale(0.75, 0.75);
-            advnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 50)
+            advChangeHoursSlider.transform = CGAffineTransform(scaleX: 0.75, y: 0.75);
+            advChangeDaysSlider.transform = CGAffineTransform(scaleX: 0.75, y: 0.75);
+            advnavbar.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: 50)
         }
         else
         {
-            advChangeHoursSlider.frame = CGRectMake(screenSize.size.width * 0.05, screenSize.size.height * 0.335, screenSize.size.width * 0.75, 30)
-            advChangeDaysSlider.frame = CGRectMake(screenSize.size.width * 0.05, screenSize.size.height * 0.435, screenSize.size.width * 0.75, 30)
-            advnavbar.frame=CGRectMake(0, 0, screenSize.size.width, 60)
+            advChangeHoursSlider.frame = CGRect(x: screenSize.size.width * 0.05, y: screenSize.size.height * 0.335, width: screenSize.size.width * 0.75, height: 30)
+            advChangeDaysSlider.frame = CGRect(x: screenSize.size.width * 0.05, y: screenSize.size.height * 0.435, width: screenSize.size.width * 0.75, height: 30)
+            advnavbar.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: 60)
         }
         AdvSearchViewController.advSortedListOfAgencies.removeAll()
         
@@ -110,58 +110,58 @@ class AdvSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func advChangeHoursLabel(sender: UISlider) {
+    @IBAction func advChangeHoursLabel(_ sender: UISlider) {
         advSelectedHour = Double(sender.value)
         let showHour1 = Int(advSelectedHour)
         advChangeHoursLabel.text = String(stringInterpolationSegment: showHour1)
     }
-    @IBAction func advChangeDaysLabel(sender: UISlider) {
+    @IBAction func advChangeDaysLabel(_ sender: UISlider) {
         advSelectedDays = Double(sender.value)
         let showDays1 = Int(advSelectedDays)
         advChangeDaysLabel.text = String(stringInterpolationSegment: showDays1)
     }
-    @IBAction func advChangeMondaySwitch(sender: UISwitch) {
-        advSelectedMonday = sender.on
+    @IBAction func advChangeMondaySwitch(_ sender: UISwitch) {
+        advSelectedMonday = sender.isOn
     }
-    @IBAction func advChangeTuesdaySwitch(sender: UISwitch) {
-        advSelectedTuesday = sender.on
+    @IBAction func advChangeTuesdaySwitch(_ sender: UISwitch) {
+        advSelectedTuesday = sender.isOn
     }
-    @IBAction func advChangeWednesdaySwitch(sender: UISwitch) {
-        advSelectedWednesday = sender.on
+    @IBAction func advChangeWednesdaySwitch(_ sender: UISwitch) {
+        advSelectedWednesday = sender.isOn
     }
-    @IBAction func advChangeThursdaySwitch(sender: UISwitch) {
-        advSelectedThursday = sender.on
+    @IBAction func advChangeThursdaySwitch(_ sender: UISwitch) {
+        advSelectedThursday = sender.isOn
     }
-    @IBAction func advChangeFridaySwitch(sender: UISwitch) {
-        advSelectedFriday = sender.on
+    @IBAction func advChangeFridaySwitch(_ sender: UISwitch) {
+        advSelectedFriday = sender.isOn
     }
-    @IBAction func advChangeSaturdaySwitch(sender: UISwitch) {
-        advSelectedSaturday = sender.on
+    @IBAction func advChangeSaturdaySwitch(_ sender: UISwitch) {
+        advSelectedSaturday = sender.isOn
     }
-    @IBAction func advChangeSundaySwitch(sender: UISwitch) {
-        advSelectedSunday = sender.on
+    @IBAction func advChangeSundaySwitch(_ sender: UISwitch) {
+        advSelectedSunday = sender.isOn
     }
     //picker functions
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponentsInPickerView(_ pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return areas.count
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return areas[row]
     }
     
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(_ pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
     {
         advInterestPickerValue = areas[row]
     }
     
-    func advshellSortAgencies(userPreferences: AdvUserInput)
+    func advshellSortAgencies(_ userPreferences: AdvUserInput)
     {
-        for (var x = 0; x < AdvSearchViewController.advSortedListOfAgencies.count-1; x += 1) {
-            for(var w = 0; w < AdvSearchViewController.advSortedListOfAgencies.count-1; w+=1)
+        for (x in 0 ..< AdvSearchViewController.advSortedListOfAgencies.count-1) {
+            for(w in 0 ..< AdvSearchViewController.advSortedListOfAgencies.count-1)
             {
                 if(AdvSearchViewController.advSortedListOfAgencies[w+1].percentMatch(userPreferences) > AdvSearchViewController.advSortedListOfAgencies[w].percentMatch(userPreferences))
                 {
@@ -173,11 +173,11 @@ class AdvSearchViewController: UIViewController {
         }
     }
     
-    @IBAction func advStartSearching(sender: UIButton) {
+    @IBAction func advStartSearching(_ sender: UIButton) {
         
         let user1 = AdvUserInput(areaOfInterest:advInterestPickerValue, numberOfHoursLeft:advSelectedHour,isSelectedMonday: advSelectedMonday, isSelectedTuesday: advSelectedTuesday, isSelectedWednesday:advSelectedWednesday, isSelectedThursday:advSelectedThursday, isSelectedFriday:advSelectedFriday, isSelectedSaturday: advSelectedSaturday, isSelectedSunday:advSelectedSunday, numDaysLeft: advSelectedDays)
         
-        for var y = 0; y < AppDelegate.listOfAgencies.count; y += 1    {
+        for y in 0 ..< AppDelegate.listOfAgencies.count   {
             if(user1.advGetUserAreaOfInterest() == AppDelegate.listOfAgencies[y].getTarget())
             {
             AdvSearchViewController.advSortedListOfAgencies.append(AppDelegate.listOfAgencies[y])

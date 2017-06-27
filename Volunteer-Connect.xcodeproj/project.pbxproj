@@ -1,630 +1,1352 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		040A38C4B0E1009D45A5669D /* Pods_Volunteer_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D00D11BB5B30A8BFB09CED /* Pods_Volunteer_ConnectTests.framework */; };
-		3821035D1C28C20200B26E65 /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821035C1C28C20200B26E65 /* UserInput.swift */; };
-		383BB73F1CF0FB5F007C107D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 383BB73E1CF0FB5F007C107D /* GoogleService-Info.plist */; };
-		388E86981C27338B00734484 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E86971C27338B00734484 /* AppDelegate.swift */; };
-		388E869A1C27338B00734484 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E86991C27338B00734484 /* ViewController.swift */; };
-		388E869D1C27338B00734484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388E869B1C27338B00734484 /* Main.storyboard */; };
-		388E869F1C27338B00734484 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388E869E1C27338B00734484 /* Images.xcassets */; };
-		388E86A21C27338B00734484 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388E86A01C27338B00734484 /* LaunchScreen.xib */; };
-		388E86AE1C27338B00734484 /* Volunteer_ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388E86AD1C27338B00734484 /* Volunteer_ConnectTests.swift */; };
-		38C83FF31C2F8F0E0025AF96 /* AdvUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C83FF21C2F8F0E0025AF96 /* AdvUserInput.swift */; };
-		38E9541B1C28DE2D0073D169 /* RegSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9541A1C28DE2D0073D169 /* RegSearchController.swift */; };
-		38E9541D1C28DE600073D169 /* RegSearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9541C1C28DE600073D169 /* RegSearchResultsController.swift */; };
-		38E9541F1C2B39140073D169 /* Agency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9541E1C2B39140073D169 /* Agency.swift */; };
-		38E954231C2DE2BC0073D169 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E954221C2DE2BC0073D169 /* TableViewCell.swift */; };
-		38F3124D1D1510AC002C98BF /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F3124C1D1510AC002C98BF /* ResultViewController.swift */; };
-		38FA8CE01C30AF2000CBDBEE /* AdvSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA8CDF1C30AF2000CBDBEE /* AdvSearchViewController.swift */; };
-		D4B0C14CE449FEDDE06BFF8A /* Pods_Volunteer_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42A8083559EDA63177C2866 /* Pods_Volunteer_Connect.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		388E86A81C27338B00734484 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 388E868A1C27338B00734484 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 388E86911C27338B00734484;
-			remoteInfo = "Volunteer-Connect";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		1865CDC22A43E512268B2B41 /* Pods-Volunteer-ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-ConnectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
-		26ECA699FA4CB6E8CDA6E140 /* Pods-Volunteer-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect.debug.xcconfig"; sourceTree = "<group>"; };
-		3821035C1C28C20200B26E65 /* UserInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInput.swift; sourceTree = "<group>"; };
-		383BB73E1CF0FB5F007C107D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		388E86921C27338B00734484 /* Volunteer-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Volunteer-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		388E86961C27338B00734484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		388E86971C27338B00734484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		388E86991C27338B00734484 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		388E869C1C27338B00734484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		388E869E1C27338B00734484 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		388E86A11C27338B00734484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		388E86A71C27338B00734484 /* Volunteer-ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Volunteer-ConnectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		388E86AC1C27338B00734484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		388E86AD1C27338B00734484 /* Volunteer_ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volunteer_ConnectTests.swift; sourceTree = "<group>"; };
-		38C83FF21C2F8F0E0025AF96 /* AdvUserInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvUserInput.swift; sourceTree = "<group>"; };
-		38E9541A1C28DE2D0073D169 /* RegSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegSearchController.swift; sourceTree = "<group>"; };
-		38E9541C1C28DE600073D169 /* RegSearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegSearchResultsController.swift; sourceTree = "<group>"; };
-		38E9541E1C2B39140073D169 /* Agency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agency.swift; sourceTree = "<group>"; };
-		38E954221C2DE2BC0073D169 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = ../TableViewCell.swift; sourceTree = "<group>"; };
-		38F3124C1D1510AC002C98BF /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		38FA8CDF1C30AF2000CBDBEE /* AdvSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvSearchViewController.swift; sourceTree = "<group>"; };
-		4CEFA43CB1CB81DF8A6C47AF /* Pods-Volunteer-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect.release.xcconfig"; sourceTree = "<group>"; };
-		93D00D11BB5B30A8BFB09CED /* Pods_Volunteer_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Volunteer_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA5FABAD15B306E41A80F90D /* Pods-Volunteer-ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer-ConnectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F42A8083559EDA63177C2866 /* Pods_Volunteer_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Volunteer_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		388E868F1C27338B00734484 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D4B0C14CE449FEDDE06BFF8A /* Pods_Volunteer_Connect.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		388E86A41C27338B00734484 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				040A38C4B0E1009D45A5669D /* Pods_Volunteer_ConnectTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		388E86891C27338B00734484 = {
-			isa = PBXGroup;
-			children = (
-				388E86941C27338B00734484 /* Volunteer-Connect */,
-				388E86AA1C27338B00734484 /* Volunteer-ConnectTests */,
-				388E86931C27338B00734484 /* Products */,
-				FAFF24D0429391029488FE03 /* Pods */,
-				676C4A72EAFFD7A47FAAD2C2 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		388E86931C27338B00734484 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				388E86921C27338B00734484 /* Volunteer-Connect.app */,
-				388E86A71C27338B00734484 /* Volunteer-ConnectTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		388E86941C27338B00734484 /* Volunteer-Connect */ = {
-			isa = PBXGroup;
-			children = (
-				38E954221C2DE2BC0073D169 /* TableViewCell.swift */,
-				388E86971C27338B00734484 /* AppDelegate.swift */,
-				388E86991C27338B00734484 /* ViewController.swift */,
-				388E869B1C27338B00734484 /* Main.storyboard */,
-				38FA8CDF1C30AF2000CBDBEE /* AdvSearchViewController.swift */,
-				38E9541A1C28DE2D0073D169 /* RegSearchController.swift */,
-				38E9541C1C28DE600073D169 /* RegSearchResultsController.swift */,
-				38F3124C1D1510AC002C98BF /* ResultViewController.swift */,
-				3821035C1C28C20200B26E65 /* UserInput.swift */,
-				38E9541E1C2B39140073D169 /* Agency.swift */,
-				38C83FF21C2F8F0E0025AF96 /* AdvUserInput.swift */,
-				388E869E1C27338B00734484 /* Images.xcassets */,
-				388E86A01C27338B00734484 /* LaunchScreen.xib */,
-				388E86951C27338B00734484 /* Supporting Files */,
-			);
-			path = "Volunteer-Connect";
-			sourceTree = "<group>";
-		};
-		388E86951C27338B00734484 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				383BB73E1CF0FB5F007C107D /* GoogleService-Info.plist */,
-				388E86961C27338B00734484 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		388E86AA1C27338B00734484 /* Volunteer-ConnectTests */ = {
-			isa = PBXGroup;
-			children = (
-				388E86AD1C27338B00734484 /* Volunteer_ConnectTests.swift */,
-				388E86AB1C27338B00734484 /* Supporting Files */,
-			);
-			path = "Volunteer-ConnectTests";
-			sourceTree = "<group>";
-		};
-		388E86AB1C27338B00734484 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				388E86AC1C27338B00734484 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		676C4A72EAFFD7A47FAAD2C2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F42A8083559EDA63177C2866 /* Pods_Volunteer_Connect.framework */,
-				93D00D11BB5B30A8BFB09CED /* Pods_Volunteer_ConnectTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FAFF24D0429391029488FE03 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				26ECA699FA4CB6E8CDA6E140 /* Pods-Volunteer-Connect.debug.xcconfig */,
-				4CEFA43CB1CB81DF8A6C47AF /* Pods-Volunteer-Connect.release.xcconfig */,
-				DA5FABAD15B306E41A80F90D /* Pods-Volunteer-ConnectTests.debug.xcconfig */,
-				1865CDC22A43E512268B2B41 /* Pods-Volunteer-ConnectTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		388E86911C27338B00734484 /* Volunteer-Connect */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 388E86B11C27338B00734484 /* Build configuration list for PBXNativeTarget "Volunteer-Connect" */;
-			buildPhases = (
-				49F895168AA3F8A08DDD178A /* 📦 Check Pods Manifest.lock */,
-				388E868E1C27338B00734484 /* Sources */,
-				388E868F1C27338B00734484 /* Frameworks */,
-				388E86901C27338B00734484 /* Resources */,
-				A79BC9646E0102D64B774869 /* 📦 Embed Pods Frameworks */,
-				CAD48D1F7A74A59BA47697BB /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Volunteer-Connect";
-			productName = "Volunteer-Connect";
-			productReference = 388E86921C27338B00734484 /* Volunteer-Connect.app */;
-			productType = "com.apple.product-type.application";
-		};
-		388E86A61C27338B00734484 /* Volunteer-ConnectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 388E86B41C27338B00734484 /* Build configuration list for PBXNativeTarget "Volunteer-ConnectTests" */;
-			buildPhases = (
-				F93C65C387CDEE4C1CBEE83D /* 📦 Check Pods Manifest.lock */,
-				388E86A31C27338B00734484 /* Sources */,
-				388E86A41C27338B00734484 /* Frameworks */,
-				388E86A51C27338B00734484 /* Resources */,
-				07BA8CE6517F80E278C1A415 /* 📦 Embed Pods Frameworks */,
-				BAD0A6A4DF014B582EDF2974 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				388E86A91C27338B00734484 /* PBXTargetDependency */,
-			);
-			name = "Volunteer-ConnectTests";
-			productName = "Volunteer-ConnectTests";
-			productReference = 388E86A71C27338B00734484 /* Volunteer-ConnectTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		388E868A1C27338B00734484 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = VolIndustries;
-				TargetAttributes = {
-					388E86911C27338B00734484 = {
-						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = W5K2KQXN9P;
-					};
-					388E86A61C27338B00734484 = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 388E86911C27338B00734484;
-					};
-				};
-			};
-			buildConfigurationList = 388E868D1C27338B00734484 /* Build configuration list for PBXProject "Volunteer-Connect" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 388E86891C27338B00734484;
-			productRefGroup = 388E86931C27338B00734484 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				388E86911C27338B00734484 /* Volunteer-Connect */,
-				388E86A61C27338B00734484 /* Volunteer-ConnectTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		388E86901C27338B00734484 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				388E869D1C27338B00734484 /* Main.storyboard in Resources */,
-				383BB73F1CF0FB5F007C107D /* GoogleService-Info.plist in Resources */,
-				388E86A21C27338B00734484 /* LaunchScreen.xib in Resources */,
-				388E869F1C27338B00734484 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		388E86A51C27338B00734484 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		07BA8CE6517F80E278C1A415 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		49F895168AA3F8A08DDD178A /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A79BC9646E0102D64B774869 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BAD0A6A4DF014B582EDF2974 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CAD48D1F7A74A59BA47697BB /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F93C65C387CDEE4C1CBEE83D /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		388E868E1C27338B00734484 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38E9541B1C28DE2D0073D169 /* RegSearchController.swift in Sources */,
-				38FA8CE01C30AF2000CBDBEE /* AdvSearchViewController.swift in Sources */,
-				38C83FF31C2F8F0E0025AF96 /* AdvUserInput.swift in Sources */,
-				388E869A1C27338B00734484 /* ViewController.swift in Sources */,
-				3821035D1C28C20200B26E65 /* UserInput.swift in Sources */,
-				38F3124D1D1510AC002C98BF /* ResultViewController.swift in Sources */,
-				388E86981C27338B00734484 /* AppDelegate.swift in Sources */,
-				38E9541F1C2B39140073D169 /* Agency.swift in Sources */,
-				38E954231C2DE2BC0073D169 /* TableViewCell.swift in Sources */,
-				38E9541D1C28DE600073D169 /* RegSearchResultsController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		388E86A31C27338B00734484 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				388E86AE1C27338B00734484 /* Volunteer_ConnectTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		388E86A91C27338B00734484 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 388E86911C27338B00734484 /* Volunteer-Connect */;
-			targetProxy = 388E86A81C27338B00734484 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		388E869B1C27338B00734484 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				388E869C1C27338B00734484 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		388E86A01C27338B00734484 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				388E86A11C27338B00734484 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		388E86AF1C27338B00734484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		388E86B01C27338B00734484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		388E86B21C27338B00734484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26ECA699FA4CB6E8CDA6E140 /* Pods-Volunteer-Connect.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/Database",
-				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/Firebase",
-				);
-				INFOPLIST_FILE = "Volunteer-Connect/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.VConnect.volunteerconnect;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		388E86B31C27338B00734484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CEFA43CB1CB81DF8A6C47AF /* Pods-Volunteer-Connect.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/Database",
-				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/Firebase",
-				);
-				INFOPLIST_FILE = "Volunteer-Connect/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.VConnect.volunteerconnect;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		388E86B51C27338B00734484 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA5FABAD15B306E41A80F90D /* Pods-Volunteer-ConnectTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Volunteer-ConnectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "VolIndustries.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Volunteer-Connect.app/Volunteer-Connect";
-			};
-			name = Debug;
-		};
-		388E86B61C27338B00734484 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1865CDC22A43E512268B2B41 /* Pods-Volunteer-ConnectTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Volunteer-ConnectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "VolIndustries.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Volunteer-Connect.app/Volunteer-Connect";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		388E868D1C27338B00734484 /* Build configuration list for PBXProject "Volunteer-Connect" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				388E86AF1C27338B00734484 /* Debug */,
-				388E86B01C27338B00734484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		388E86B11C27338B00734484 /* Build configuration list for PBXNativeTarget "Volunteer-Connect" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				388E86B21C27338B00734484 /* Debug */,
-				388E86B31C27338B00734484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		388E86B41C27338B00734484 /* Build configuration list for PBXNativeTarget "Volunteer-ConnectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				388E86B51C27338B00734484 /* Debug */,
-				388E86B61C27338B00734484 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 388E868A1C27338B00734484 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>040A38C4B0E1009D45A5669D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>93D00D11BB5B30A8BFB09CED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>07BA8CE6517F80E278C1A415</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/../../../Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>1865CDC22A43E512268B2B41</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Volunteer-ConnectTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>26ECA699FA4CB6E8CDA6E140</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Volunteer-Connect.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3821035C1C28C20200B26E65</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UserInput.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3821035D1C28C20200B26E65</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3821035C1C28C20200B26E65</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>383BB73E1CF0FB5F007C107D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>GoogleService-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>383BB73F1CF0FB5F007C107D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>383BB73E1CF0FB5F007C107D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E86891C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>388E86941C27338B00734484</string>
+				<string>388E86AA1C27338B00734484</string>
+				<string>388E86931C27338B00734484</string>
+				<string>FAFF24D0429391029488FE03</string>
+				<string>676C4A72EAFFD7A47FAAD2C2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E868A1C27338B00734484</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0720</string>
+				<key>LastUpgradeCheck</key>
+				<string>0720</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>VolIndustries</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>388E86911C27338B00734484</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1</string>
+						<key>DevelopmentTeam</key>
+						<string>W5K2KQXN9P</string>
+						<key>LastSwiftMigration</key>
+						<string>0830</string>
+					</dict>
+					<key>388E86A61C27338B00734484</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1</string>
+						<key>LastSwiftMigration</key>
+						<string>0830</string>
+						<key>TestTargetID</key>
+						<string>388E86911C27338B00734484</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>388E868D1C27338B00734484</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>388E86891C27338B00734484</string>
+			<key>productRefGroup</key>
+			<string>388E86931C27338B00734484</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>388E86911C27338B00734484</string>
+				<string>388E86A61C27338B00734484</string>
+			</array>
+		</dict>
+		<key>388E868D1C27338B00734484</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>388E86AF1C27338B00734484</string>
+				<string>388E86B01C27338B00734484</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>388E868E1C27338B00734484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>38E9541B1C28DE2D0073D169</string>
+				<string>38FA8CE01C30AF2000CBDBEE</string>
+				<string>38C83FF31C2F8F0E0025AF96</string>
+				<string>388E869A1C27338B00734484</string>
+				<string>3821035D1C28C20200B26E65</string>
+				<string>38F3124D1D1510AC002C98BF</string>
+				<string>388E86981C27338B00734484</string>
+				<string>38E9541F1C2B39140073D169</string>
+				<string>38E954231C2DE2BC0073D169</string>
+				<string>38E9541D1C28DE600073D169</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>388E868F1C27338B00734484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>D4B0C14CE449FEDDE06BFF8A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>388E86901C27338B00734484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>388E869D1C27338B00734484</string>
+				<string>383BB73F1CF0FB5F007C107D</string>
+				<string>388E86A21C27338B00734484</string>
+				<string>388E869F1C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>388E86911C27338B00734484</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>388E86B11C27338B00734484</string>
+			<key>buildPhases</key>
+			<array>
+				<string>49F895168AA3F8A08DDD178A</string>
+				<string>388E868E1C27338B00734484</string>
+				<string>388E868F1C27338B00734484</string>
+				<string>388E86901C27338B00734484</string>
+				<string>A79BC9646E0102D64B774869</string>
+				<string>CAD48D1F7A74A59BA47697BB</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Volunteer-Connect</string>
+			<key>productName</key>
+			<string>Volunteer-Connect</string>
+			<key>productReference</key>
+			<string>388E86921C27338B00734484</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>388E86921C27338B00734484</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Volunteer-Connect.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>388E86931C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>388E86921C27338B00734484</string>
+				<string>388E86A71C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86941C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>38E954221C2DE2BC0073D169</string>
+				<string>388E86971C27338B00734484</string>
+				<string>388E86991C27338B00734484</string>
+				<string>388E869B1C27338B00734484</string>
+				<string>38FA8CDF1C30AF2000CBDBEE</string>
+				<string>38E9541A1C28DE2D0073D169</string>
+				<string>38E9541C1C28DE600073D169</string>
+				<string>38F3124C1D1510AC002C98BF</string>
+				<string>3821035C1C28C20200B26E65</string>
+				<string>38E9541E1C2B39140073D169</string>
+				<string>38C83FF21C2F8F0E0025AF96</string>
+				<string>388E869E1C27338B00734484</string>
+				<string>388E86A01C27338B00734484</string>
+				<string>388E86951C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Volunteer-Connect</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86951C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>383BB73E1CF0FB5F007C107D</string>
+				<string>388E86961C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86961C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86971C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86981C27338B00734484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>388E86971C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E86991C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E869A1C27338B00734484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>388E86991C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E869B1C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>388E869C1C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E869C1C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E869D1C27338B00734484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>388E869B1C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E869E1C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E869F1C27338B00734484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>388E869E1C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E86A01C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>388E86A11C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86A11C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86A21C27338B00734484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>388E86A01C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E86A31C27338B00734484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>388E86AE1C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>388E86A41C27338B00734484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>040A38C4B0E1009D45A5669D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>388E86A51C27338B00734484</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>388E86A61C27338B00734484</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>388E86B41C27338B00734484</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F93C65C387CDEE4C1CBEE83D</string>
+				<string>388E86A31C27338B00734484</string>
+				<string>388E86A41C27338B00734484</string>
+				<string>388E86A51C27338B00734484</string>
+				<string>07BA8CE6517F80E278C1A415</string>
+				<string>BAD0A6A4DF014B582EDF2974</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>388E86A91C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Volunteer-ConnectTests</string>
+			<key>productName</key>
+			<string>Volunteer-ConnectTests</string>
+			<key>productReference</key>
+			<string>388E86A71C27338B00734484</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>388E86A71C27338B00734484</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Volunteer-ConnectTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>388E86A81C27338B00734484</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>388E868A1C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>388E86911C27338B00734484</string>
+			<key>remoteInfo</key>
+			<string>Volunteer-Connect</string>
+		</dict>
+		<key>388E86A91C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>388E86911C27338B00734484</string>
+			<key>targetProxy</key>
+			<string>388E86A81C27338B00734484</string>
+		</dict>
+		<key>388E86AA1C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>388E86AD1C27338B00734484</string>
+				<string>388E86AB1C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Volunteer-ConnectTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86AB1C27338B00734484</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>388E86AC1C27338B00734484</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86AC1C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86AD1C27338B00734484</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Volunteer_ConnectTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>388E86AE1C27338B00734484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>388E86AD1C27338B00734484</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>388E86AF1C27338B00734484</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>388E86B01C27338B00734484</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.1</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>388E86B11C27338B00734484</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>388E86B21C27338B00734484</string>
+				<string>388E86B31C27338B00734484</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>388E86B21C27338B00734484</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>26ECA699FA4CB6E8CDA6E140</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)/Pods/Database</string>
+				</array>
+				<key>FRAMEWORK_SEARCH_PATHS[arch=*]</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)/Pods/Firebase</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Volunteer-Connect/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>New_Setting</key>
+				<string></string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.VConnect.volunteerconnect</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>388E86B31C27338B00734484</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>4CEFA43CB1CB81DF8A6C47AF</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)/Pods/Database</string>
+				</array>
+				<key>FRAMEWORK_SEARCH_PATHS[arch=*]</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>$(PROJECT_DIR)/Pods/Firebase</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Volunteer-Connect/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>New_Setting</key>
+				<string></string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.VConnect.volunteerconnect</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>388E86B41C27338B00734484</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>388E86B51C27338B00734484</string>
+				<string>388E86B61C27338B00734484</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>388E86B51C27338B00734484</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>DA5FABAD15B306E41A80F90D</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Volunteer-ConnectTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>VolIndustries.$(PRODUCT_NAME:rfc1034identifier)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Volunteer-Connect.app/Volunteer-Connect</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>388E86B61C27338B00734484</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>1865CDC22A43E512268B2B41</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>Volunteer-ConnectTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>VolIndustries.$(PRODUCT_NAME:rfc1034identifier)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Volunteer-Connect.app/Volunteer-Connect</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>38C83FF21C2F8F0E0025AF96</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AdvUserInput.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38C83FF31C2F8F0E0025AF96</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38C83FF21C2F8F0E0025AF96</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38E9541A1C28DE2D0073D169</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>RegSearchController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38E9541B1C28DE2D0073D169</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38E9541A1C28DE2D0073D169</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38E9541C1C28DE600073D169</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>RegSearchResultsController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38E9541D1C28DE600073D169</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38E9541C1C28DE600073D169</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38E9541E1C2B39140073D169</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Agency.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38E9541F1C2B39140073D169</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38E9541E1C2B39140073D169</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38E954221C2DE2BC0073D169</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>TableViewCell.swift</string>
+			<key>path</key>
+			<string>../TableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38E954231C2DE2BC0073D169</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38E954221C2DE2BC0073D169</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38F3124C1D1510AC002C98BF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ResultViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38F3124D1D1510AC002C98BF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38F3124C1D1510AC002C98BF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>38FA8CDF1C30AF2000CBDBEE</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AdvSearchViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>38FA8CE01C30AF2000CBDBEE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>38FA8CDF1C30AF2000CBDBEE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>49F895168AA3F8A08DDD178A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>4CEFA43CB1CB81DF8A6C47AF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Volunteer-Connect.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>676C4A72EAFFD7A47FAAD2C2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F42A8083559EDA63177C2866</string>
+				<string>93D00D11BB5B30A8BFB09CED</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>93D00D11BB5B30A8BFB09CED</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Volunteer_ConnectTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>A79BC9646E0102D64B774869</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/../../../Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BAD0A6A4DF014B582EDF2974</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/../../../Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>CAD48D1F7A74A59BA47697BB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/../../../Pods/Target Support Files/Pods-Volunteer-Connect/Pods-Volunteer-Connect-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D4B0C14CE449FEDDE06BFF8A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F42A8083559EDA63177C2866</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DA5FABAD15B306E41A80F90D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Volunteer-ConnectTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Volunteer-ConnectTests/Pods-Volunteer-ConnectTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F42A8083559EDA63177C2866</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Volunteer_Connect.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>F93C65C387CDEE4C1CBEE83D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>FAFF24D0429391029488FE03</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>26ECA699FA4CB6E8CDA6E140</string>
+				<string>4CEFA43CB1CB81DF8A6C47AF</string>
+				<string>DA5FABAD15B306E41A80F90D</string>
+				<string>1865CDC22A43E512268B2B41</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>388E868A1C27338B00734484</string>
+</dict>
+</plist>

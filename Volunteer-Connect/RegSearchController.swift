@@ -11,7 +11,7 @@ class RegSearchController: UIViewController {
     /*
     Instance Variables
     */
-    var screenSize:CGRect = UIScreen.mainScreen().bounds
+    var screenSize:CGRect = UIScreen.main.bounds
 
     var colors = ["Children","Elderly","Developmentally Disabled","Impoverished", "Environment"]
     var InterestPickerValue = "Children"
@@ -60,9 +60,9 @@ class RegSearchController: UIViewController {
         super.viewDidLoad()
         var scrollFrame = CGRect();
         scrollFrame.origin = scrollViews.frame.origin;
-        scrollFrame.size = CGSizeMake(screenSize.size.width, screenSize.size.height);
-        backgroundimg.frame=CGRectMake(0, 0, screenSize.size.width, screenSize.size.height);
-        let blur = UIBlurEffect (style: UIBlurEffectStyle.Light);
+        scrollFrame.size = CGSize(width: screenSize.size.width, height: screenSize.size.height);
+        backgroundimg.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: screenSize.size.height);
+        let blur = UIBlurEffect (style: UIBlurEffectStyle.light);
         let blur2 = UIVisualEffectView(effect: blur);
         blur2.frame = backgroundimg.bounds;
         backgroundimg.addSubview(blur2);
@@ -92,18 +92,18 @@ class RegSearchController: UIViewController {
         RadiusSlider.center = CGPoint(x: (screenSize.size.width/2) - (screenSize.size.width * 0.1) , y: screenSize.size.height * 0.452)
         HourLabel.center = CGPoint(x: (screenSize.size.width/2) + (screenSize.size.width * 0.46) , y: screenSize.size.height * 0.35)
         RadiusLabel.center = CGPoint (x: (screenSize.size.width/2) + (screenSize.size.width * 0.45) , y: screenSize.size.height * 0.452)
-        InterestPicker.frame=CGRectMake(0, screenSize.size.height * 0.01, screenSize.size.width, screenSize.size.height * 0.3)
+        InterestPicker.frame=CGRect(x: 0, y: screenSize.size.height * 0.01, width: screenSize.size.width, height: screenSize.size.height * 0.3)
         if(screenSize.size.width <= 350)
         {
-            HourSlider.transform = CGAffineTransformMakeScale(0.75, 0.75);
-            RadiusSlider.transform = CGAffineTransformMakeScale(0.75, 0.75);
-            navbar.frame=CGRectMake(0, 0, screenSize.size.width, 50)
+            HourSlider.transform = CGAffineTransform(scaleX: 0.75, y: 0.75);
+            RadiusSlider.transform = CGAffineTransform(scaleX: 0.75, y: 0.75);
+            navbar.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: 50)
         }
         else
         {
-            HourSlider.frame = CGRectMake(screenSize.size.width * 0.05, screenSize.size.height * 0.335, screenSize.size.width * 0.75, 30)
-            RadiusSlider.frame = CGRectMake(screenSize.size.width * 0.05, screenSize.size.height * 0.435, screenSize.size.width * 0.75, 30)
-            navbar.frame=CGRectMake(0, 0, screenSize.size.width, 60)
+            HourSlider.frame = CGRect(x: screenSize.size.width * 0.05, y: screenSize.size.height * 0.335, width: screenSize.size.width * 0.75, height: 30)
+            RadiusSlider.frame = CGRect(x: screenSize.size.width * 0.05, y: screenSize.size.height * 0.435, width: screenSize.size.width * 0.75, height: 30)
+            navbar.frame=CGRect(x: 0, y: 0, width: screenSize.size.width, height: 60)
         }
         
     }
@@ -117,7 +117,7 @@ class RegSearchController: UIViewController {
     Functions that recieve input from altering the UI elements
     */
     
-    @IBAction func changeHours(sender: UISlider) {
+    @IBAction func changeHours(_ sender: UISlider) {
         selectedHour = Double(sender.value)
         let showHour = Int(selectedHour)
         
@@ -125,56 +125,56 @@ class RegSearchController: UIViewController {
         
     }
     
-    @IBAction func changeRadius(sender: UISlider) {
+    @IBAction func changeRadius(_ sender: UISlider) {
         selectedRadius = Double(sender.value)
         let showRadius = Int(selectedRadius)
         RadiusLabel.text = String(stringInterpolationSegment: showRadius)
     }
     
-    @IBAction func changeMondaySwitch(sender: UISwitch) {
-        selectedMonday = sender.on
+    @IBAction func changeMondaySwitch(_ sender: UISwitch) {
+        selectedMonday = sender.isOn
     }
     
-    @IBAction func changeTuesdaySwitch(sender: UISwitch) {
-        selectedTuesday = sender.on
+    @IBAction func changeTuesdaySwitch(_ sender: UISwitch) {
+        selectedTuesday = sender.isOn
     }
     
-    @IBAction func changeWednesdaySwitch(sender: UISwitch) {
-        selectedWednesday = sender.on
+    @IBAction func changeWednesdaySwitch(_ sender: UISwitch) {
+        selectedWednesday = sender.isOn
     }
     
-    @IBAction func changeThursdaySwitch(sender: UISwitch) {
-        selectedThursday = sender.on
+    @IBAction func changeThursdaySwitch(_ sender: UISwitch) {
+        selectedThursday = sender.isOn
     }
     
-    @IBAction func changeFridaySwitch(sender: UISwitch) {
-        selectedFriday = sender.on
+    @IBAction func changeFridaySwitch(_ sender: UISwitch) {
+        selectedFriday = sender.isOn
     }
     
-    @IBAction func changeSaturdaySwitch(sender: UISwitch) {
-        selectedSaturday = sender.on
+    @IBAction func changeSaturdaySwitch(_ sender: UISwitch) {
+        selectedSaturday = sender.isOn
     }
     
-    @IBAction func changeSundaySwitch(sender: UISwitch) {
-        selectedSunday = sender.on
+    @IBAction func changeSundaySwitch(_ sender: UISwitch) {
+        selectedSunday = sender.isOn
     }
     
     /*
     Functions for the Picker
     */
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponentsInPickerView(_ pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return colors.count
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return colors[row]
     }
     
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(_ pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
     {
         InterestPickerValue=colors[row]
     }
@@ -206,10 +206,10 @@ class RegSearchController: UIViewController {
     /*
     Sorts the Agencies by order of their percent match
     */
-    func shellSortAgencies(userPreferences: UserInput)
+    func shellSortAgencies(_ userPreferences: UserInput)
     {
-        for (var x = 0; x < RegSearchController.sortedListOfAgencies.count-1; x += 1) {
-            for(var w=0; w < RegSearchController.sortedListOfAgencies.count-1; w+=1)
+        for (x, in 0 ..< RegSearchController.sortedListOfAgencies.count-1) {
+            for(w in 0 ..< RegSearchController.sortedListOfAgencies.count-1)
             {
                 if(RegSearchController.sortedListOfAgencies[w+1].percentMatch(userPreferences) > RegSearchController.sortedListOfAgencies[w].percentMatch(userPreferences))
                 {
@@ -221,7 +221,7 @@ class RegSearchController: UIViewController {
         }
     }
 
-    @IBAction func StartSearching(sender: AnyObject) {
+    @IBAction func StartSearching(_ sender: AnyObject) {
         
         let user = UserInput(areaOfInterest:InterestPickerValue, numberOfHours:selectedHour, distance:selectedRadius, isSelectedMonday: selectedMonday,isSelectedTuesday: selectedTuesday, isSelectedWednesday:selectedWednesday, isSelectedThursday:selectedThursday, isSelectedFriday:selectedFriday, isSelectedSaturday: selectedSaturday, isSelectedSunday:selectedSunday)
         
@@ -258,7 +258,7 @@ class RegSearchController: UIViewController {
 //            listOfAgencies.append(Agency(name: name1, distance: dist, target: target1, phoneNumber: phoneNumber1, email: email1, numberOfHours: hours1, isSelectedMonday: monday1, isSelectedTuesday: tuesday1, isSelectedWednesday: wednesday1, isSelectedThursday: thursday1, isSelectedFriday: friday1, isSelectedSaturday: saturday1, isSelectedSunday: sunday1, newurl: url1, newaddress: newaddress1))
 //            
 //        }
-        for var y = 0; y < AppDelegate.listOfAgencies.count; y += 1
+        for y in 0 ..< AppDelegate.listOfAgencies.count
             {
             if(user.getUserAreaOfInterest() == AppDelegate.listOfAgencies[y].getTarget())
             {
